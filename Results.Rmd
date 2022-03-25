@@ -1,13 +1,103 @@
 ---
-title: "Results"
-author: "Andrew MacDonald"
-date: "3/25/2022"
-output: html_document
+title: "Connected or Disconnected?"
+subtitle: "An Examination of the Relationship between Social Media Use and Feelings of Isolation in China"
+author: 
+  - Jason Gainous^[Duke Kunshan University, jason.gainous@louisville.edu]
+  - Andrew W. MacDonald^[Duke Kunshan University, andrew.macdonald@dukekunshan.edu.cn]
+date: '`r format(Sys.time(), "%B %d, %Y")`'
+abstract: "The following brief paper is simply the preliminary results of our study. We seek to identify the relationship between social media use and feelings of isolationism in China. This study is based on original date. We conducted a nationwide survey of Chinese citizens conducted in 2015 measuring a range of concepts including those here. The preliminary results are promising. We develop an index of personal isolationism and model this as a function of social media use, connection to the outside digital world, and urbanicity, while controlling for a host of individual level factors. The results suggest the following: 1) Social media use does not have a generalized relationship with isolationism, 2) Those who use VPNs/proxy servers tend to feel less isolated than those who do not, 3) Those living in urban environments tend to feel more isolated, 3) There is a strong positive relationship between social media use and feelings of isolation for those who frequently use VPNs/proxy servers, and 4) The is a strong positive relationship between social media use and feelings of isolation for those living in rural China."
+keywords: 
+  - social isolation
+  - social media
+  - China
+output: bookdown::html_document2
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(message = FALSE)
+
+library(tidyverse)
+library(sjPlot)
+library(ggpubr)
+library(grid)
+library(stargazer)
+library(scales)
+library(papeR)
+library(gridExtra)
+library(knitr)
+library(kableExtra)
+library(ggcorrplot)
+
+load("china_isolation_data.RData")
+
+china_isolation_data <- china_original_amanzhol
 ```
 
-# Results
+# Social Isolation in China
+
+## Introduction
+
+Research is quite mixed when it comes to identifying the relationship between social media use and feelings of isolationism. Early research suggested that the internet would build social capital, or an interconnectedness between people, and that social media platforms were the ultimate way to bring people together. Since then, research indicates that the effect may be the opposite for many. Social media may encourage social isolation, and ultimately, social media users may feel more disconnected from others than those who do not use social media. We know very little about this phenomenon in China. China presents an interesting case because the internet is bifurcated to some degree – there is the Chinese internet and the outside internet available via VPNs. Being connected to the outside world may lessen feelings of isolation, or it may increase these feelings because digital exposure to a world is much larger than that in people’s immediate environment without the ability to have in-person connection to may make one feel isolated. Interestingly, and somewhat ironically though, it may also matter, too, whether someone lives in a city. Research has suggested that urban living can actually lead to feelings of isolation.
+
+## Data
+
+Our data are based on a random Internet survey conducted by Qualtrics from November 25 to December 2, 2015. We designed the instrument, content and structure. After we designed the instrument in English and translated it into Chinese, we entered the questions into the graphical interface provided from our survey provider, Qualtrics. We were careful at this stage to make the formatting clear, and to distribute the questions across numerous pages to prevent overwhelming respondents with too many questions at once. This helped us achieve a high completion and response rate. Additionally, we were particularly attentive to the possibility of question order effects. Many of the questions are sensitive and could cue responses to subsequent questions. We grouped and placed questions strategically to limit any such potential for response bias. Once we settled on the design, Qualtrics administered the survey in November 2015. They recruit a large pool of respondents for various survey projects through online advertising on websites such as local portals, search engines, social networking services, and/or online shopping services. Panelists who update their profiles at least once every 6 months are randomly invited to participate in surveys for which they qualify. Online points are awarded to the corresponding panelists, which they may accumulate and exchange for cash or various other country-specific gifts to serve as an incentive for completion. This number of points is based on the length of the survey. Ours had over fifty questions, so respondents received a relatively high number of points.  
+
+The data collection had two phases. For the first phase, Qualtrics collected and submitted to us a trial run of 286 cases. We were able to check the data for reliability and adjust the instrument before proceeding with the second phase, the final data collection. We only made three adjustments, all of which turned out to be important and central to our analysis. For the trial run, we only asked respondents about pro-government Internet posters and did not ask them about potential net-spy or hostile posters. We amended this oversight and it became central to the analysis that follows. In addition, much of our theory focuses on the impact of Chinese Internet users circumventing government filters on the Internet. We initially had a question about whether citizens had jumped the wall to read sensitive political information (see Appendix A – Q25), but decided to add whether they had done so for entertainment purposes as well (Q26 - to watch foreign movies, television shows, etc.). Finally, we also included an attention filter question as part of a battery of institutional trust questions where respondents were simply told to select the “None at all” response (Q13H). If they did not select this response, we could assume they were not paying attention to the questions, and the survey ended for these respondents and the data were not collected for them. In the end, the full sample included a total of 2292 respondents. This sample size provides for a roughly ±2 margin of error.  
+
+While our sample was randomly selected, the sampling frame was based only on Internet users that Qualtrics can access. Qualtrics recruits their frame subjects through online advertising on websites such as local portals, search engines, social networking services, and/or online shopping services. We do not contend that our sample is representative of the Chinese population, as the method of obtaining respondents obviously greatly limits those citizens with little or no access to the Internet. That said, we are comfortable that our sample is generally representative of Chinese Internet users. Given that our research focus centers on Internet effects, it makes sense to have a large sample of Internet users. A sampling frame including the entire Chinese population did not make sense for this research. Half of the population do not regularly access the Internet according to World Bank and China Internet Network Information Center (CNNIC) data as of late 2015 when we conducted our survey.  Using a sample of the entire population could potentially limit the degrees of freedom in our models and the marginals of nuanced measures of digital media use would likely become too small to have any value. Thus, the large sample of Internet users adds to our confidence in the inferences throughout the book. 
+
+
+## Summary statistics
+
+### Summary stats table
+```{r summarystats}
+key.vars <- china_isolation_data %>% 
+  select(c(connected, gen_social_med, urbanicity, ses, female, CCP_member, age, jump_wall))
+
+kable(summarize(key.vars, type="numeric")) %>% 
+  kable_styling()
+```
+
+### Correlations
+
+```{r correlations}
+cors <- cor(key.vars, use="complete.obs")
+
+ggcorrplot(cors, title="Key variables associated with connectedness", lab=TRUE, type="lower")
+```
+
+
+## Models 
+
+```{r models}
+mod1 <- lm(connected ~ gen_social_med + urbanicity + ses + female + CCP_member + age + jump_wall, data = china_isolation_data)
+
+mod2 <- lm(connected ~ gen_social_med*urbanicity + ses + female + CCP_member + age + jump_wall, data = china_isolation_data)
+
+mod3 <- lm(connected ~ gen_social_med*jump_wall + urbanicity + ses + female + CCP_member + age, data = china_isolation_data)
+
+tab_model(mod1, mod2, mod3, show.ci = FALSE)
+```
+
+
+## Margin plots
+
+```{r marginplots}
+a = plot_model(mod2, type = "pred", title = "", terms = c("gen_social_med", "urbanicity")
+               , legend.title = "Urbanicity") +
+  scale_color_discrete(labels = c("Village", "Small City", "Mid-sized City", "Suburb", "Big City")) +
+  ylab("Feelings of Isolation") +
+  xlab("Social Media Use") 
+
+b = plot_model(mod3, type = "pred", title = "", terms = c("gen_social_med", "jump_wall")
+               , legend.title = "Globally Connected") +
+  scale_color_discrete(labels = c("Never", "", "", "A Moderate Amount", "", "", "Very Often")) +
+  ylab("Feelings of Isolation") +
+  xlab("Social Media Use") 
+
+grid.arrange(a, b)
+```
 
