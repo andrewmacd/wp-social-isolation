@@ -1,6 +1,5 @@
 ---
 title: "Connected or Disconnected?"
-subtitle: "An Examination of the Relationship between Social Media Use and Feelings of Isolation in China"
 author: 
   - Jason Gainous^[Duke Kunshan University, jason.gainous@louisville.edu]
   - Andrew W. MacDonald^[Duke Kunshan University, andrew.macdonald@dukekunshan.edu.cn]
@@ -10,7 +9,8 @@ keywords:
   - social isolation
   - social media
   - China
-output: bookdown::html_document2
+format: pdf
+editor: visual
 ---
 
 ```{r setup, include=FALSE}
@@ -58,7 +58,7 @@ key.vars <- china_isolation_data %>%
   select(c(connected, gen_social_med, urbanicity, ses, female, CCP_member, age, jump_wall))
 
 kable(summarize(key.vars, type="numeric")) %>% 
-  kable_styling()
+  kable_styling(latex_options="striped")
 ```
 
 ### Correlations
@@ -66,7 +66,8 @@ kable(summarize(key.vars, type="numeric")) %>%
 ```{r correlations}
 cors <- cor(key.vars, use="complete.obs")
 
-ggcorrplot(cors, title="Key variables associated with connectedness", lab=TRUE, type="lower")
+ggcorrplot(cors, title="Key variables associated with connectedness", 
+           lab=TRUE, type="lower", insig="blank")
 ```
 
 
@@ -100,4 +101,5 @@ b = plot_model(mod3, type = "pred", title = "", terms = c("gen_social_med", "jum
 
 grid.arrange(a, b)
 ```
+
 
