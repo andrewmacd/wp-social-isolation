@@ -58,3 +58,5 @@ cor.test(china_isolation_data$xxx, china_isolation_data$connected)
 library(scales)
 china_isolation_data$urbanicity_cat = as.factor(rescale(china_isolation_data$urbanicity, to = c(1, 5)))
 table(china_isolation_data$urbanicity_cat)
+
+#FDGNJLKGSFDLKJSFDJLKFDSGLJ'D
