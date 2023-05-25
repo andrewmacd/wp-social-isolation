@@ -1,22 +1,24 @@
 ---
-title: "Connected or Disconnected?"
+title: "The Spatial Relationship between Social Media, Digital Connectedness, and Social Isolation in China: Revisting Cyber-Optimism"
 author: 
-  - Jason Gainous^[Duke Kunshan University, jason.gainous@louisville.edu]
+  - Jason Gainous^[University of Louisville, jason.gainous@louisville.edu]
   - Andrew W. MacDonald^[Duke Kunshan University, andrew.macdonald@dukekunshan.edu.cn]
 date: '`r format(Sys.time(), "%B %d, %Y")`'
-abstract: "The following brief paper is simply the preliminary results of our study. We seek to identify the relationship between social media use and feelings of isolationism in China. This study is based on original date. We conducted a nationwide survey of Chinese citizens conducted in 2015 measuring a range of concepts including those here. The preliminary results are promising. We develop an index of personal isolationism and model this as a function of social media use, connection to the outside digital world, and urbanicity, while controlling for a host of individual level factors. The results suggest the following: 1) Social media use does not have a generalized relationship with isolationism, 2) Those who use VPNs/proxy servers tend to feel less isolated than those who do not, 3) Those living in urban environments tend to feel more isolated, 3) There is a strong positive relationship between social media use and feelings of isolation for those who frequently use VPNs/proxy servers, and 4) The is a strong positive relationship between social media use and feelings of isolation for those living in rural China."
+abstract: "Early research and popular discourse on the promise of the internet was optimistic. Many believed it would promote social interconnectedness and, ultimately, be a positive force in people’s lives. Since these early predictions, research has become much less positive, usually pointing to the negative aspects of social media. Here we test whether the digital environment can actually create a space that deters feelings of social isolationism especially for those living outside cities in restrictive information environments where citizens are often disconnected from the outside world. Using data from a nationwide survey of Chinese citizens we conducted in 2015, we do find that the more citizens digitally connect with others, the less personally isolated they feel, but that this relationship is less pronounced for those in rural communities. Conversely, though, the more likely people are to move relationships from online to offline, and the more they use social media, the more personally isolated they feel. These counter-relationships are more pronounced for those in rural communities. Generally, those living in urban environments tend to feel more isolated, and digital connection does not seem to mediate this spatial factor. In fact, it exacerbates loneliness."
 keywords: 
-  - social isolation
-  - social media
+  - Social Isolation
+  - Social Media
+  - Digital Communication
   - China
 format: pdf
-editor: visual
+execute: 
+  echo: false
+  warning: false
+bibliography: references.bib
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-knitr::opts_chunk$set(warning = FALSE)
-knitr::opts_chunk$set(message = FALSE)
+```{r}
+# labeL: setup
 
 library(tidyverse)
 library(sjPlot)
@@ -45,61 +47,63 @@ Research is quite mixed when it comes to identifying the relationship between so
 
 Research is quite mixed when it comes to identifying the relationship between social media use and feelings of isolationism. Early research suggested that the internet would build social capital, or an interconnectedness between people, and that social media platforms were the ultimate way to bring people together. Since then, research indicates that the effect may be the opposite for many. Social media may encourage social isolation, and ultimately, social media users may feel more disconnected from others than those who do not use social media. We know very little about this phenomenon in China. China presents an interesting case because the internet is bifurcated to some degree -- there is the Chinese internet and the outside internet available via VPNs. Being connected to the outside world may lessen feelings of isolation, or it may increase these feelings because digital exposure to a world is much larger than that in people's immediate environment without the ability to have in-person connection to may make one feel isolated. Interestingly, and somewhat ironically though, it may also matter, too, whether someone lives in a city. Research has suggested that urban living can actually lead to feelings of isolation.
 
-## Data
+## Data, Measurement and Descriptives
 
-Our data are based on a random Internet survey conducted by Qualtrics from November 25 to December 2, 2015. We designed the instrument, content and structure. After we designed the instrument in English and translated it into Chinese, we entered the questions into the graphical interface provided from our survey provider, Qualtrics. We were careful at this stage to make the formatting clear, and to distribute the questions across numerous pages to prevent overwhelming respondents with too many questions at once. This helped us achieve a high completion and response rate. Additionally, we were particularly attentive to the possibility of question order effects. Many of the questions are sensitive and could cue responses to subsequent questions. We grouped and placed questions strategically to limit any such potential for response bias. Once we settled on the design, Qualtrics administered the survey in November 2015. They recruit a large pool of respondents for various survey projects through online advertising on websites such as local portals, search engines, social networking services, and/or online shopping services. Panelists who update their profiles at least once every 6 months are randomly invited to participate in surveys for which they qualify. Online points are awarded to the corresponding panelists, which they may accumulate and exchange for cash or various other country-specific gifts to serve as an incentive for completion. This number of points is based on the length of the survey. Ours had over fifty questions, so respondents received a relatively high number of points.
+The data from this study are original. We designed a survey instrument in English, and translated it into Chinese, to measure a range of concepts including social isolationism and various dimensions of social media and digital information consumption. We employed Qualtrics to collect the data. They randomly selected 2292 respondents from their existing panel[^1] from November 25 to December 2, 2015. This sample size on provides for a roughly ±2 margin of error.[^2]
 
-The data collection had two phases. For the first phase, Qualtrics collected and submitted to us a trial run of 286 cases. We were able to check the data for reliability and adjust the instrument before proceeding with the second phase, the final data collection. We only made three adjustments, all of which turned out to be important and central to our analysis. For the trial run, we only asked respondents about pro-government Internet posters and did not ask them about potential net-spy or hostile posters. We amended this oversight and it became central to the analysis that follows. In addition, much of our theory focuses on the impact of Chinese Internet users circumventing government filters on the Internet. We initially had a question about whether citizens had jumped the wall to read sensitive political information (see Appendix A -- Q25), but decided to add whether they had done so for entertainment purposes as well (Q26 - to watch foreign movies, television shows, etc.). Finally, we also included an attention filter question as part of a battery of institutional trust questions where respondents were simply told to select the "None at all" response (Q13H). If they did not select this response, we could assume they were not paying attention to the questions, and the survey ended for these respondents and the data were not collected for them. In the end, the full sample included a total of 2292 respondents. This sample size provides for a roughly ±2 margin of error.
+[^1]: Qualtrics recruits a large pool of respondents for various survey projects through online advertising. Recruits who update their profiles at least once every 6 months are randomly invited to participate. These recruits are awarded online points that can be exchanged for cash or various other country-specific gifts. The number of points is based on the length of the survey, and since our survey had over fifty questions, respondents received a relatively high number of points.
 
-While our sample was randomly selected, the sampling frame was based only on Internet users that Qualtrics can access. Qualtrics recruits their frame subjects through online advertising on websites such as local portals, search engines, social networking services, and/or online shopping services. We do not contend that our sample is representative of the Chinese population, as the method of obtaining respondents obviously greatly limits those citizens with little or no access to the Internet. That said, we are comfortable that our sample is generally representative of Chinese Internet users. Given that our research focus centers on Internet effects, it makes sense to have a large sample of Internet users. A sampling frame including the entire Chinese population did not make sense for this research. Half of the population do not regularly access the Internet according to World Bank and China Internet Network Information Center (CNNIC) data as of late 2015 when we conducted our survey. Using a sample of the entire population could potentially limit the degrees of freedom in our models and the marginals of nuanced measures of digital media use would likely become too small to have any value. Thus, the large sample of Internet users adds to our confidence in the inferences throughout the book.
+[^2]: We were able to first collect a small sample (\$n\$=286) to check the reliability and adjust the instrument after before proceeding with the final data collection. We made three adjustments, none of which are related to the measures used in the current study.
 
-## Summary statistics
+Our dependent variable, **social isolationism**, is a three-item additive index. Respondents were given the following introduction: The next question is about how you feel about different aspects of your life. Could you tell me for each one if you feel that way always, almost always, some of the time, rarely or never? Then they were asked: A) How often do you feel that you lack companionship, B) How often do you feel isolated from others?, and C) How often do you feel left out? Response options were recoded so that higher responses equated to feeling more socially isolated, they were all three added together, and then rescaled to range from 0 through 1 maintaining the original intervals ($\alpha$ = 0.86). The distribution of that index is presented in Figure [isolation]{.smallcaps}. The distribution is relatively normal centered around the midpoint with a slight skew to the right. Most respondents appear to be on the low end, indicating the the majority of those in our sample do not feel particularly isolated. Conversely, the right skew in the distribution does suggest that a sizable chunk of folks feel quite socially isolated. Altogether, the spread out distribution indicates quite a bit of variance ($\mu$ = 0.41, sd = 0.20).
 
-### Summary stats table
+## Results
 
-```{r summarystats}
-key.vars <- china_isolation_data %>% 
-  select(c(connected, gen_social_med, urbanicity, ses, female, CCP_member, age, jump_wall))
+Given that the first two dependent variables (human interaction, online to offline to offline relationships) in our profile models are distributed ordinally, we initially estimate linear models of those outcomes and examine the residual behavior to determine if a linear model fits the data well or if an ordered outcome model is a better fit. The results were clear, a linear model is not a good fit for either outcome (see the figures in the Online Appendix), so we fit the models using ordered logit. Because our measure of general social media is based on an additive index, we treat it as continuous, and accordingly fit a linear model.
 
-kable(summarize(key.vars, type="numeric")) %>% 
-  kable_styling(latex_options="striped")
-```
+Our modeling strategy that follows is straightforward. We begin by modeling each of our internet communication independent variables as function of socio-economic status (SES), gender, Chinese Communist Party membership (CCP), and age to create an individual profile of each type of digital user (see the Online Appendix for the operationalization of these variables). This provides some context for the models that follow which are intended to test our primary hypotheses, that is that internet communication can deter social isolation and that this is particularly true for those who do not have the convenience of the high social interaction opportunity provided by urban living. For those we begin by fitting an additive model of our index of social isolationism as function of each of our primary independent variables while also controlling for the same variables included in our profile models. Finally, we refit three models with the same specification but introduce an interactive term between each of our internet communication indicators, respectively, with our measure of urbanicity. This allows us to test whether the observed additive effects are stronger for those living outside cities.
 
-### Correlations
+We have several primary independent variables including **human interaction**, **online to offline relationships**, **general social media use**, and **urbanicity**. We measured human interaction with a single item: Has the internet and phone applications increased your contact with the following groups of people (check yes to all that apply)? The response options were: 1) Family that lives nearby, 2) Family that lives far away, 3) Friends that live nearby, 4) Friends that live far away, 5) People you met on the internet that live nearby, and 6) People you met on the internet that live far away. We simply counted the number of selected responses so the item ranged from 0 to 6, and then for the models that come later, we rescaled it to range from 0 through 1 maintaining the original intervals. Online to offline relationships was also measured with a single item: Have you met someone offline that you initially met online? Response options were: 1) Yes, many times, 2) Yes, several times, 3) Yes, once, and 4) No, never. We inverted this scale so that higher values represented more offline relationships, and again, rescaled it to range from 0 through 1 for the models that follow.
 
-```{r correlations}
-cors <- cor(key.vars, use="complete.obs")
+The distributions of these ordinal independent variables are reflected in Figure [ivs]{.smallcaps}. Very few people claimed to never have increased their contact/connections with others through the internet. The modal number of increased connections respondents claimed to have made through the internet was 2, followed closely by 1, but a sizable proportion of the sample, about 48% claimed to have increased their number of personal connections by 3 or more through the internet. Perhaps not surprisingly, the modal response when asked whether one had met someone online and that relationship moved offline was "No, never". On the other hand, we were surprised that about 37% of those sampled claimed to have moved relationships offline several times, over 10% said they had done so many times, and about 13% did so once. Taken altogether, a large proportion of our respondents seem to using the internet to facilitate social relations.
 
-ggcorrplot(cors, title="Key variables associated with connectedness", 
-           lab=TRUE, type="lower", insig="blank")
-```
+We measured general social media use with an index based on the following three items: 1) About how many hours a day would you estimate you spend using only social media? Social media means applications like Weibo, QQ, Renren, Kaixin001, Douban, WeChat or other sites and services that allow users to interact with each other. (0-1, 1-2, 2-3, 3-4, 4-5, 5-6, 6-7, 7-8, 8-9, or More than 9), 2) Do you check email, read websites, and use social media (social media means applications like Weibo, QQ, Renren, Kaixin001, Douban, WeChat or other sites and services that allow users to interact with each other) more than you did five years ago? (Yes, No), and 3) How often do you read news stories about political events that have been posted on social media (social media means applications like Weibo, QQ, Renren, Kaixin001, Douban, WeChat or other sites and services that allow users to interact with each other)? (More than once a day, Everyday, Three-to-five days per week, One-to-two days per week, Less often, Never). Each was recoded so that higher values represented more social media use, rescaled to range from 0 through 1, added together, and then again, rescaled to range from 0 through 1 maintaining all original intervals. The distribution of this index is presented in Figure \ref{genSM}. The distribution is relatively normal and tightly centered around the mean 0.63 with a standard deviation of 0.17, but there is a left skew suggesting that a portion of the population is not that social media active, but clearly the bulk of the population are.
 
-## Models
+Our final primary independent variable, urbanicity, was measured using a single item: Which of these best describes the place in which you live? (Countryside/Village, Small City, Mid-Sized City, Suburban Area of a Big City, Big City). For the purpose of the models, we rescaled this item to range from 0 through 1 maintaining the original intervals. The distribution is reflected in Figure [urban]{.smallcaps}. Given the rural to urban Chinese migration since the founding of the People's Republic \citep{xia.2019}, it is not surprising to see that nearly 45% of those in our sample live in cities, 7% in suburbs, and about 27% in mid-sized cities. About 16% say they live in small cities and only about 5% say they live in villages.
 
-```{r models}
-mod1 <- lm(connected ~ gen_social_med + urbanicity + ses + female + CCP_member + age + jump_wall, data = china_isolation_data)
+Our modeling strategy that follows is straightforward. We begin by modeling each of our internet communication independent variables as function of socio-economic status (SES), gender, Chinese Communist Party membership (CCP), and age to create an individual profile of each type of digital user (see the Online Appendix for the operationalization of these variables). This provides some context for the models that follow which are intended to test our primary hypotheses, that is that internet communication can deter social isolation and that this is particularly true for those who do not have the convenience of the high social interaction opportunity provided by urban living. For those we begin by fitting an additive model of our index of social isolationism as function of each of our primary independent variables while also controlling for the same variables included in our profile models. Finally, we refit three models with the same specification but introduce an interactive term between each of our internet communication indicators, respectively, with our measure of urbanicity. This allows us to test whether the observed additive effects are stronger for those living outside cities.
 
-mod2 <- lm(connected ~ gen_social_med*urbanicity + ses + female + CCP_member + age + jump_wall, data = china_isolation_data)
+## Results
 
-mod3 <- lm(connected ~ gen_social_med*jump_wall + urbanicity + ses + female + CCP_member + age, data = china_isolation_data)
+Given that the first two dependent variables (human interaction, online to offline to offline relationships) in our profile models are distributed ordinally, we initially estimate linear models of those outcomes and examine the residual behavior to determine if a linear model fits the data well or if an ordered outcome model is a better fit. The results were clear, a linear model is not a good fit for either outcome (see the figures in the Online Appendix), so we fit the models using ordered logit. Because our measure of general social media is based on an additive index, we treat it as continuous, and accordingly fit a linear model.
 
-tab_model(mod1, mod2, mod3, show.ci = FALSE)
-```
+The results of our profile models are presented in Table [profile]{.smallcaps}. When it comes to SES, the relationship across all three of our internet communication is consistent. As SES goes up so does digital human interaction, the move from online to offline relationships, and general social media use. That gender is only statistically significant in the model of the move from online to offline relationships where women are less likely to do so. Interestingly, being a CCP member has inverse relationships with human interaction and the move from online to offline, where members are less likely to increase digital human interaction but are more likely to move online relationships offline. Finally, the older respondents were the more likely they were to increase human interaction, and the less likely they were to move relationships offline and use social media. These profile results provide background context for the models that follow. The internet communication indicators are our primary independent variables, so these profile models give us a sense for whom they matter the most when it comes to deterring social isolation.
 
-## Margin plots
+The results of our models of social isolation are presented in Table Figure [interact]{.smallcaps}. The additive estimates in model (1) provide mixed results regarding whether internet communication is a positive force in deterring social isolation. Not surprisingly, there is a negative relationship between the number of digital connections (human interaction) folks make and feelings of social isolation. On the other hand, though, both moving online relationships offline and general social media use are positively related to feelings of social isolation. The latter is consistent with much of the literature outlined above, but the former is not. Perhaps, this is context driven. The results also indicate that those living in more urban environments tend to feel less socially isolated.
 
-```{r marginplots}
-a = plot_model(mod2, type = "pred", title = "", terms = c("gen_social_med", "urbanicity")
-               , legend.title = "Urbanicity") +
-  scale_color_discrete(labels = c("Village", "Small City", "Mid-sized City", "Suburb", "Big City")) +
-  ylab("Feelings of Isolation") +
-  xlab("Social Media Use") 
+%NOTE: Andrew, do you want to speculate here about why online to offline is positively related - desparate peole?.
 
-b = plot_model(mod3, type = "pred", title = "", terms = c("gen_social_med", "jump_wall")
-               , legend.title = "Globally Connected") +
-  scale_color_discrete(labels = c("Never", "", "", "A Moderate Amount", "", "", "Very Often")) +
-  ylab("Feelings of Isolation") +
-  xlab("Social Media Use") 
+Models (2) - (4) in Table [interact]{.smallcaps} include each of the interactions between our three internet communication measures and urbanicity. The consistent result across the interactions is that the relationships are dulled for those living in more rural areas. The interaction between digital human interaction and urbanicity is statistically significant (p \< 0.01), as is that between the move from online to offline relationships and urbanicity (p \< 0.001), and that between general social media use and urbanicity only slightly misses the arbitrary 0.05 threshold (p = 0.07). The interactions are most easily interpreted graphically (see Figure [intergraph]{.smallcaps}).
 
-grid.arrange(a, b)
-```
+The model (2) results are graphed in the upper left hand figure. Here it is clear that the negative relationship between digital human interaction and feelings of social isolation is considerably stronger for those in cities. For that matter, notice that the relationship for those in villages is basically flat; the 95 percent confidence interval around the slight negative slope indicates that the relationship could be flat.
+
+The results from the interaction between online to offline relationships and urbanicity are displayed in the graph in the upper right hand corner of Figure [intergraph]{.smallcaps}. Again, here, the main effects run in the opposite direction than those of digital human interaction. Those who are more likely to move relationships from online to offline tend to feel more isolated, and the interactive results presented here suggest that this relations is stronger for those living in less urban spaces. Likewise, the same is the case for those using social media more frequently. In fact, the relationship here for those living in the largest cities is completely non-existent.
+
+## Conclusion
+
+Cyberoptimists heralded the internet as means by which people could connect, build social capital, and some suggested this could deter social isolationism. Our results provide little evidence of this optimistic view of the internet and its ability to improve the quality of people's lives. We do find that some are more likely to interact with family and friends and that this does deter feelings of social isolation, but on the other hand, even though many move online relationships offline and connect through social media, doing so does not deter feelings of social isolation. Instead, such digital actively is actually associated with increased feelings of social isolation.
+
+We also found no evidence that the internet could serve as bridge to build connections for those living outside of cities. The optimistic view here would be that the internet could lower the costs of making connections for those who have less social opportunity, those living in less populated areas, and as a result, help them to feel less isolated. We, in fact, found the opposite. Internet communication had either less positive effect or more negative effect on feelings of social isolation for those living in less urban spaces.
+
+Our contribution here is that we look at some well-established theoretical arguments in a context outside that of where most of the research centered on these type questions has examined. By no means, have we offered a definitive answer to whether there are contextual differences. We have, though, offered a good starting point to further examine the relationship between internet communication and social isolationism outside Western contexts.
+
+## References
+
+::: {#refs}
+:::
+
+## Online Appendix
+
+### Variable Operationalization
+
+### Residual Analysis

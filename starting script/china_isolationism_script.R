@@ -1,4 +1,4 @@
-load("C:/Users/jbg43/Dropbox/Research/Internet Politics/China/Isolationism/china_isolation_data.RData")
+load("../china_isolation_data.RData")
 
 names(china_isolation_data)
 table(china_isolation_data$connected)
@@ -7,10 +7,10 @@ cor.test(china_isolation_data$gen_social_med,china_isolation_data$connected)
 mod1 = lm(connected ~ gen_social_med + urbanicity + ses + female + CCP_member + age + jump_wall, data = china_isolation_data)
 summary(mod1)
 
-mod2 = lm(connected ~ gen_social_med*urbanicity + ses + female + CCP_member + age + jump_wall, data = china_isolation_data)
+mod2 = lm(connected ~ gen_social_med*urbanicity + urbases + female + CCP_member + age + jump_wall, data = china_isolation_data)
 summary(mod2)
 
-mod3 = lm(connected ~ gen_social_med*jump_wall + urbanicity + ses + female + CCP_member + age, data = china_isolation_data)
+mod3 = lm(connected ~ gen_social_med*jump_wall + urbanicity + ses + female + CCP_member + age + jump_wall, data = china_isolation_data)
 summary(mod3)
 
 library(ggplot2)
