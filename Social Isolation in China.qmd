@@ -4,6 +4,7 @@ author:
   - Jason Gainous^[University of Louisville, jason.gainous@louisville.edu]
   - Andrew W. MacDonald^[Duke Kunshan University, andrew.macdonald@dukekunshan.edu.cn]
 date: '`r format(Sys.time(), "%B %d, %Y")`'
+<<<<<<< Updated upstream
 abstract: "Early research and popular discourse on the promise of the internet was optimistic. Many believed it would promote social interconnectedness and, ultimately, be a positive force in people’s lives. Since these early predictions, research has become much less positive, usually pointing to the negative aspects of social media. Here we test whether the digital environment can actually create a space that deters feelings of social isolationism especially for those living outside cities in restrictive information environments where citizens are often disconnected from the outside world. Using data from a nationwide survey of Chinese citizens we conducted in 2015, we do find that the more citizens digitally connect with others, the less personally isolated they feel, but that this relationship is less pronounced for those in rural communities. Conversely, though, the more likely people are to move relationships from online to offline, and the more they use social media, the more personally isolated they feel. These counter-relationships are more pronounced for those in rural communities. Generally, those living in urban environments tend to feel more isolated, and digital connection does not seem to mediate this spatial factor. In fact, it exacerbates loneliness."
 keywords: 
   - Social Isolation
@@ -15,6 +16,17 @@ execute:
   echo: false
   warning: false
 bibliography: references.bib
+=======
+abstract: "Early research and populuar discourse on the promise of the internet was optimistic. Many believed it would promote social interconnectedness and, ultimately, be a positive force in people's lives. Since these early predictions, research has become much less positive, usually pointing to the negative aspects of social media. Here we argue that the digital environment can actually create a space that deters feelings of social isolationism especially for those living outside cities in restrictive information environments where citizens are often disconnected from the outside world. Using data from a nationwide survey of Chinese citizens we conducted in 2015, we find that the more citizens digitally connect with others, the more likely they are to move relationships from online to offliine, and the more they use social media the less personally isolated they feel. Futher, those living in urban environments tend to feel more isolated, and this spatial factor seems to moderate the aforementioned relationships. All three of those observed relationships are stronger for those in less urban environments."
+keywords: 
+  - social isolation
+  - social media
+  - digital connectedness
+  - China
+format: pdf
+cite-method: biblatex
+editor: visual
+>>>>>>> Stashed changes
 ---
 
 ```{r}
@@ -34,19 +46,21 @@ library(ggcorrplot)
 
 load("china_isolation_data.RData")
 
-china_isolation_data <- china_original_amanzhol
+
 ```
 
-# Social Isolation in China
+#### Data, Measurement, and Descriptives
 
-## Introduction
+The data from this study are original. We designed a survey instrument in English, and translated it into Chinese, to measure a range of concepts including social isolationism and various dimensions of social media and digital information consumption. We employed Qualtrics to collect the data. They randomly selected 2292 respondents from their existing panel[^1] from November 25 to December 2, 2015. This sample size on provides for a roughly ±2 margin of error.[^2]
 
-Research is quite mixed when it comes to identifying the relationship between social media use and feelings of isolationism. Early research suggested that the internet would build social capital, or an interconnectedness between people, and that social media platforms were the ultimate way to bring people together. Since then, research indicates that the effect may be the opposite for many. Social media may encourage social isolation, and ultimately, social media users may feel more disconnected from others than those who do not use social media. We know very little about this phenomenon in China. China presents an interesting case because the internet is bifurcated to some degree -- there is the Chinese internet and the outside internet available via VPNs. Being connected to the outside world may lessen feelings of isolation, or it may increase these feelings because digital exposure to a world is much larger than that in people's immediate environment without the ability to have in-person connection to may make one feel isolated. Interestingly, and somewhat ironically though, it may also matter, too, whether someone lives in a city. Research has suggested that urban living can actually lead to feelings of isolation.
+[^1]: Qualtrics recruits a large pool of respondents for various survey projects through online advertising. Recruits who update their profiles at least once every 6 months are randomly invited to participate. These recruits are awarded online points that can be exchanged for cash or various other country-specific gifts. The number of points is based on the length of the survey, and since our survey had over fifty questions, respondents received a relatively high number of points.
 
-## Introduction
+[^2]: We were able to first collect a small sample (n = 286) to check the reliability and adjust the instrument after before proceeding with the final data collection. We made three adjustments, none of which are related to the measures used in the current study.
 
-Research is quite mixed when it comes to identifying the relationship between social media use and feelings of isolationism. Early research suggested that the internet would build social capital, or an interconnectedness between people, and that social media platforms were the ultimate way to bring people together. Since then, research indicates that the effect may be the opposite for many. Social media may encourage social isolation, and ultimately, social media users may feel more disconnected from others than those who do not use social media. We know very little about this phenomenon in China. China presents an interesting case because the internet is bifurcated to some degree -- there is the Chinese internet and the outside internet available via VPNs. Being connected to the outside world may lessen feelings of isolation, or it may increase these feelings because digital exposure to a world is much larger than that in people's immediate environment without the ability to have in-person connection to may make one feel isolated. Interestingly, and somewhat ironically though, it may also matter, too, whether someone lives in a city. Research has suggested that urban living can actually lead to feelings of isolation.
+Our dependent variable, *social isolationism*, is a three-item additive index. Respondents were given the following introduction: The next question is about how you feel about different aspects of your life. Could
+you tell me for each one if you feel that way always, almost always, some of the time, rarely or never? Then they were asked: A) How often do you feel that you lack companionship, B) How often do you feel isolated from others?, and C) How often do you feel left out? Response options were recoded so that higher responses equated to feeling more socially isolated, they were all three added together, and then rescaled to range from 0 through 1 maintaining the original intervals (\\alpha = 0.86). The distribrution of that index is presented in
 
+<<<<<<< Updated upstream
 ## Data, Measurement and Descriptives
 
 The data from this study are original. We designed a survey instrument in English, and translated it into Chinese, to measure a range of concepts including social isolationism and various dimensions of social media and digital information consumption. We employed Qualtrics to collect the data. They randomly selected 2292 respondents from their existing panel[^1] from November 25 to December 2, 2015. This sample size on provides for a roughly ±2 margin of error.[^2]
@@ -107,3 +121,13 @@ Our contribution here is that we look at some well-established theoretical argum
 ### Variable Operationalization
 
 ### Residual Analysis
+=======
+```{r}
+figure1 = ggplot(china_isolation_data, aes(x=isolation)) + 
+  geom_histogram(aes(y=..density..), colour="black", fill="white")+
+  geom_density(alpha=.2, fill="#FF6666") +
+  xlab("Social isolationness") +
+  ylab("Density")
+figure1
+```
+>>>>>>> Stashed changes

@@ -1,0 +1,312 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={The Spatial Relationship between Social Media, Digital Connectedness, and Social Isolation in China: Revisting Cyber-Optimism},
+  pdfauthor={Jason Gainous; Andrew W. MacDonald},
+  pdfkeywords={social isolation, social media, digital
+connectedness, China},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{The Spatial Relationship between Social Media, Digital
+Connectedness, and Social Isolation in China: Revisting Cyber-Optimism}
+\author{Jason Gainous\footnote{University of Louisville,
+  jason.gainous@louisville.edu} \and Andrew W. MacDonald\footnote{Duke
+  Kunshan University, andrew.macdonald@dukekunshan.edu.cn}}
+\date{3/5/23}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Early research and populuar discourse on the promise of the internet was
+optimistic. Many believed it would promote social interconnectedness
+and, ultimately, be a positive force in people's lives. Since these
+early predictions, research has become much less positive, usually
+pointing to the negative aspects of social media. Here we argue that the
+digital environment can actually create a space that deters feelings of
+social isolationism especially for those living outside cities in
+restrictive information environments where citizens are often
+disconnected from the outside world. Using data from a nationwide survey
+of Chinese citizens we conducted in 2015, we find that the more citizens
+digitally connect with others, the more likely they are to move
+relationships from online to offliine, and the more they use social
+media the less personally isolated they feel. Futher, those living in
+urban environments tend to feel more isolated, and this spatial factor
+seems to moderate the aforementioned relationships. All three of those
+observed relationships are stronger for those in less urban
+environments.
+\end{abstract}
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, enhanced, frame hidden, interior hidden, boxrule=0pt, sharp corners, borderline west={3pt}{0pt}{shadecolor}]}{\end{tcolorbox}}\fi
+
+\hypertarget{social-isolation-in-china}{%
+\section{Social Isolation in China}\label{social-isolation-in-china}}
+
+\hypertarget{introduction}{%
+\subsection{Introduction}\label{introduction}}
+
+Research is quite mixed when it comes to identifying the relationship
+between social media use and feelings of isolationism. Early research
+suggested that the internet would build social capital, or an
+interconnectedness between people, and that social media platforms were
+the ultimate way to bring people together. Since then, research
+indicates that the effect may be the opposite for many. Social media may
+encourage social isolation, and ultimately, social media users may feel
+more disconnected from others than those who do not use social media. We
+know very little about this phenomenon in China. China presents an
+interesting case because the internet is bifurcated to some degree --
+there is the Chinese internet and the outside internet available via
+VPNs. Being isolation to the outside world may lessen feelings of
+isolation, or it may increase these feelings because digital exposure to
+a world is much larger than that in people's immediate environment
+without the ability to have in-person connection to may make one feel
+isolated. Interestingly, and somewhat ironically though, it may also
+matter, too, whether someone lives in a city. Research has suggested
+that urban living can actually lead to feelings of isolation.
+
+\hypertarget{introduction-1}{%
+\subsection{Introduction}\label{introduction-1}}
+
+Research is quite mixed when it comes to identifying the relationship
+between social media use and feelings of isolationism. Early research
+suggested that the internet would build social capital, or an
+interconnectedness between people, and that social media platforms were
+the ultimate way to bring people together. Since then, research
+indicates that the effect may be the opposite for many. Social media may
+encourage social isolation, and ultimately, social media users may feel
+more disconnected from others than those who do not use social media. We
+know very little about this phenomenon in China. China presents an
+interesting case because the internet is bifurcated to some degree --
+there is the Chinese internet and the outside internet available via
+VPNs. Being isolation to the outside world may lessen feelings of
+isolation, or it may increase these feelings because digital exposure to
+a world is much larger than that in people's immediate environment
+without the ability to have in-person connection to may make one feel
+isolated. Interestingly, and somewhat ironically though, it may also
+matter, too, whether someone lives in a city. Research has suggested
+that urban living can actually lead to feelings of isolation.
+
+\hypertarget{data}{%
+\subsection{Data}\label{data}}
+
+Our data are based on a random Internet survey conducted by Qualtrics
+from November 25 to December 2, 2015. We designed the instrument,
+content and structure. After we designed the instrument in English and
+translated it into Chinese, we entered the questions into the graphical
+interface provided from our survey provider, Qualtrics. We were careful
+at this stage to make the formatting clear, and to distribute the
+questions across numerous pages to prevent overwhelming respondents with
+too many questions at once. This helped us achieve a high completion and
+response rate. Additionally, we were particularly attentive to the
+possibility of question order effects. Many of the questions are
+sensitive and could cue responses to subsequent questions. We grouped
+and placed questions strategically to limit any such potential for
+response bias. Once we settled on the design, Qualtrics administered the
+survey in November 2015. They recruit a large pool of respondents for
+various survey projects through online advertising on websites such as
+local portals, search engines, social networking services, and/or online
+shopping services. Panelists who update their profiles at least once
+every 6 months are randomly invited to participate in surveys for which
+they qualify. Online points are awarded to the corresponding panelists,
+which they may accumulate and exchange for cash or various other
+country-specific gifts to serve as an incentive for completion. This
+number of points is based on the length of the survey. Ours had over
+fifty questions, so respondents received a relatively high number of
+points.
+
+The data collection had two phases. For the first phase, Qualtrics
+collected and submitted to us a trial run of 286 cases. We were able to
+check the data for reliability and adjust the instrument before
+proceeding with the second phase, the final data collection. We only
+made three adjustments, all of which turned out to be important and
+central to our analysis. For the trial run, we only asked respondents
+about pro-government Internet posters and did not ask them about
+potential net-spy or hostile posters. We amended this oversight and it
+became central to the analysis that follows. In addition, much of our
+theory focuses on the impact of Chinese Internet users circumventing
+government filters on the Internet. We initially had a question about
+whether citizens had jumped the wall to read sensitive political
+information (see Appendix A -- Q25), but decided to add whether they had
+done so for entertainment purposes as well (Q26 - to watch foreign
+movies, television shows, etc.). Finally, we also included an attention
+filter question as part of a battery of institutional trust questions
+where respondents were simply told to select the ``None at all''
+response (Q13H). If they did not select this response, we could assume
+they were not paying attention to the questions, and the survey ended
+for these respondents and the data were not collected for them. In the
+end, the full sample included a total of 2292 respondents. This sample
+size provides for a roughly ±2 margin of error.
+
+While our sample was randomly selected, the sampling frame was based
+only on Internet users that Qualtrics can access. Qualtrics recruits
+their frame subjects through online advertising on websites such as
+local portals, search engines, social networking services, and/or online
+shopping services. We do not contend that our sample is representative
+of the Chinese population, as the method of obtaining respondents
+obviously greatly limits those citizens with little or no access to the
+Internet. That said, we are comfortable that our sample is generally
+representative of Chinese Internet users. Given that our research focus
+centers on Internet effects, it makes sense to have a large sample of
+Internet users. A sampling frame including the entire Chinese population
+did not make sense for this research. Half of the population do not
+regularly access the Internet according to World Bank and China Internet
+Network Information Center (CNNIC) data as of late 2015 when we
+conducted our survey. Using a sample of the entire population could
+potentially limit the degrees of freedom in our models and the marginals
+of nuanced measures of digital media use would likely become too small
+to have any value. Thus, the large sample of Internet users adds to our
+confidence in the inferences throughout the book.
+
+
+
+\end{document}
