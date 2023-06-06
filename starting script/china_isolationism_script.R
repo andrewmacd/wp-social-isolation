@@ -1,22 +1,19 @@
-<<<<<<< Updated upstream
 load("../china_isolation_data.RData")
-=======
-load("C:/Users/j0gain01/Dropbox/Research/Internet Politics/China/Isolationism/china_isolation_data.RData")
->>>>>>> Stashed changes
 
 names(china_isolation_data)
 
-#Variable Coding################################################################################
+#Variable Coding
+
 #Social Isolation
+
 china_isolation_data$isolation = (china_isolation_data$Q7_A_rc + china_isolation_data$Q7_B_rc + china_isolation_data$Q7_C_rc)
 
-<<<<<<< Updated upstream
 mod2 = lm(connected ~ gen_social_med*urbanicity + urbases + female + CCP_member + age + jump_wall, data = china_isolation_data)
 summary(mod2)
 
 mod3 = lm(connected ~ gen_social_med*jump_wall + urbanicity + ses + female + CCP_member + age + jump_wall, data = china_isolation_data)
 summary(mod3)
-=======
+
 library(psy)
 isolation.matrix = cbind(
   china_isolation_data$Q7_A_rc,
@@ -28,7 +25,7 @@ cronbach(isolation.matrix)
 library(scales)
 china_isolation_data$isolation = rescale(china_isolation_data$isolation, to = c(0, 1))
 summary(china_isolation_data$isolation)
->>>>>>> Stashed changes
+
 
 #Digital Human Interaction
 table(china_isolation_data$Q8_1_rc)
