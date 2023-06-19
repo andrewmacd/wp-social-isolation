@@ -40,11 +40,37 @@ load("china_isolation_data.RData")
 
 # Social Isolation in China
 
-"For example, when social media is used to facilitate offline relationships, to communicate, or to make new friends, it reduces feelings of loneliness \[140, 141\]. In contrast, when social media is used to compensate for poor social skills by replacing offline interactions with online interactions, it significantly increases loneliness \[142,143,144\]." [@lim2020]
-
 ## Introduction
 
 Research is quite mixed when it comes to identifying the relationship between social media use and feelings of isolationism. Early research suggested that the internet would build social capital, or an interconnectedness between people, and that social media platforms were the ultimate way to bring people together. Since then, research indicates that the effect may be the opposite for many. Social media may encourage social isolation, and ultimately, social media users may feel more disconnected from others than those who do not use social media. We know very little about this phenomenon in China. China presents an interesting case because the internet is bifurcated to some degree -- there is the Chinese internet and the outside internet available via VPNs. Being connected to the outside world may lessen feelings of isolation, or it may increase these feelings because digital exposure to a world is much larger than that in people's immediate environment without the ability to have in-person connection to may make one feel isolated. Interestingly, and somewhat ironically though, it may also matter, too, whether someone lives in a city. Research has suggested that urban living can actually lead to feelings of isolation.
+
+## Literature Review and Theory
+
+The literature on the relationship between social media usage and attitudes about the self
+
+Most of the literature finds a negative relationship between
+
+Initially
+
+More recently, there has been a great deal of attention paid to the idea that there is some sort of connection between well-being and social media use, with most critics and significant scholarly research
+
+While the current Different studies have come to different conclusions regarding which direction the causal relationship flows; whether higher social media use causes more social isolation or whether the relationship is reversed. Martilla et al. propose a more complex causal model in that social media usage predicts loneliness, which then influences measures of social well-being [@marttila2021]. A meta-review of
+
+At a more intermediate level, and perhaps one of the reasons for some of the empirical disagreement between authors, is that social media can have two possible effects. As Lim puts it, "...when social media is used to facilitate offline relationships, to communicate, or to make new friends, it reduces feelings of loneliness. In contrast, when social media is used to compensate for poor social skills by replacing offline interactions with online interactions, it significantly increases loneliness" [@lim2020]. While
+
+Importantly, the proposed mechanisms f
+
+Almost all of the existing research on the subject takes U.S. citizens as its object of study, with an additional few studies on other Western developed countries. It seems quite likely that the cultural context can matter for social isolation. Studies have demonstrated that measures of social isolation can vary significantly across countries. Different starting points of social isolation seem reasonably likely to lead to differential effects of increased social media use. Additionally, while the basic mechanics of social media (sharing and consuming content of others), likely the internet environment .
+
+This study aims to understand how these complex dynamics interact in the non-Western setting of China. China is known for high/low level of social isolation.
+
+In our view, there are three key differences between the Chinese social media environment and that of the West that may influence the linkage between social media use and feelings of isolation - the government attempts to control the internet, the space for online subcultures, and the popularity of Chinese social media influencers. Many people are aware that the Chinese government censors politically sensitive content on online platforms. However, fewer are aware that the Chinese government spends as much if not more effort to clean up non-political but negative or distressing content on the Chinese internet, such as scams, instances of cyber bullying, disturbing videos, and vulgar content. This control impulse also extends content the government views as spiritually polluting, such as pornography, scantily dressed women, and other escapist content.
+
+Secondly, due to the government's perceived need to control online content, the number of available spaces online where users can freely interact is significantly more limited than on the Western internet. Due to this limitation, there are also fewer opportunities for niche subcultures to form. Most of the existing social media channels are either ones in which the user may connect directly people they know in real life (WeChat) or ones in which they view content of other, anonymous, users in which they rarely form a stable, ongoing relationship with (Xiaohongshu and TikTok). China does feature a program similar to Twitter (Weibo) that does lead to some unique subculture formation but has no analogous space to Reddit or other such spaces that are organized primarily according to user interest.
+
+Finally, China also has a highly robust online influencer culture. While social media influencers are a global phenomena, China has perhaps the most commercialized version of influencing. Social media influencers are developed by large agencies and work in an almost assembly-line fashion to promote products on livestreams or pitch sponsor products. In this influencer culture, less attention is paid to authenticity and personality and relatively more emphasis is placed on consumerism, brand promotion, and image [@tam2019; @wei2023].
+
+From a theoretical perspective, these three differences may lead to divergent findings regarding the relationship as compared to the West.
 
 ## Data, Measurement and Descriptives
 
