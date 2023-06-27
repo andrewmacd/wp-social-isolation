@@ -1,0 +1,13 @@
+name: rc2023presentation
+title: rc2023presentation
+username:
+account: andrewm
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 9370795
+bundleId: 7392060
+url: https://andrewm.shinyapps.io/rc2023presentation/
+when: 1687849181.54968
+lastSyncTime: 1687849181.5497
+asMultiple: FALSE
+asStatic: FALSE
