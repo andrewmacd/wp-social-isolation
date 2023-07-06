@@ -4,7 +4,7 @@ author: "Jason Gainous and Andrew W. MacDonald"
 date: "June 27th, 2023"
 output: 
   learnr::tutorial:
-    toc_depth: 3
+    toc_depth: 2
 bibliography: www/references.bib
 nocite: '@*'
 csl: www/apsa.csl
@@ -34,25 +34,27 @@ library(gt)
 
 theme_set(theme_light())
 
+replace_estimates <- function(mod_list_func) {
+  
+  working <- mod_list_func
+  
+  for(model in 1:length(working)) {
+    for(obs in 1:nrow(working[[model]]$tidy)) {
+      working[[model]]$tidy$estimate[obs] <- case_when(working[[model]]$tidy$p.value[obs] > 0.05 ~ "—",
+                                working[[model]]$tidy$estimate[obs] >= 0 ~ "▲",
+                                working[[model]]$tidy$estimate[obs] < 0 ~ "▼")
+    }
+  }
+  
+  return(working)
+}
+
 gof.included.short <- list()
 
 gof.included.full <- list(
   list("raw" = "nobs", "clean" = "N", "fmt" = "%i"),
   list("raw" = "r2.nagelkerke", "clean" = "Pseudo R2", "fmt" = "%.2f"),
   list("raw" = "r.squared", "clean" = "R2", "fmt" = "%.2f"))
-
-replace_estimates <- function(mod_list) {
-  
-  for(model in 1:length(mod_list)) {
-    for(obs in 1:nrow(mod_list[[model]]$tidy)) {
-      mod_list[[model]]$tidy$estimate[obs] <- case_when(mod_list[[model]]$tidy$p.value[obs] > 0.05 ~ "—",
-                                mod_list[[model]]$tidy$estimate[obs] >= 0 ~ "▲",
-                                mod_list[[model]]$tidy$estimate[obs] < 0 ~ "▼")
-    }
-  }
-  
-  return(mod_list)
-}
 
 load("www/china_isolation_data.RData")
 ```
@@ -323,27 +325,28 @@ selectInput(
 uiOutput("profile")
 ```
 
-```{r profileusersshortstart, context="setup"}
-mod1_ord <- polr(data=china_isolation_data, human_interaction_cat ~ ses + 
+```{r profileusersshortstart, context="data"}
+mod1_ord_short <- polr(data=china_isolation_data, human_interaction_cat ~ ses + 
                    female + CCP_member + age, Hess=TRUE)
-mod2_ord <- polr(online_offline_cat ~ ses + female + CCP_member + age, 
+mod2_ord_short <- polr(online_offline_cat ~ ses + female + CCP_member + age, 
                  data=china_isolation_data, Hess=TRUE)
-mod3 <- lm(gen_social_med ~ ses + female + CCP_member + age,
+mod3_short <- lm(gen_social_med ~ ses + female + CCP_member + age,
            data=china_isolation_data)
 
 n <- "▲, ▼ indicates p>0.05"
 
-models <- list(
-  "Human Interaction" = mod1_ord,
-  "Online/Offline Interaction" = mod2_ord,
-  "General Social Media" = mod3
+mods_prof <- list(
+  "Human Interaction" = mod1_ord_short,
+  "Online/Offline Interaction" = mod2_ord_short,
+  "General Social Media" = mod3_short
 )
 
 # Remove the number estimates
-mod_list <- modelsummary(models, output = "modelsummary_list")
-mod_list <- replace_estimates(mod_list)
+mod_list_prof <- modelsummary(mods_prof, output = "modelsummary_list")
+mod_list_prof_update <- as.list(mod_list_prof)
+mod_list_prof_update <- replace_estimates(mod_list_prof_update)
 
-profile.table <- modelsummary(mod_list, 
+profile.table <- modelsummary(mod_list_prof_update, 
              coef_omit = ".*Connect|.*Intercept|.*No|.*Yes",
              coef_rename = c("ses" = "SES",
                            "female" = "Female",
@@ -551,24 +554,25 @@ selectInput(
 uiOutput("sociso")
 ```
 
-```{r socialisolationshortstart, context="setup"}
-mod4 = lm(isolation ~ human_interaction + online_offline + gen_social_med + urbanicity + ses + female + CCP_member + age, data = china_isolation_data)
+```{r socialisolationshortstart, context="data"}
+mod4short = lm(isolation ~ human_interaction + online_offline + gen_social_med + urbanicity + ses + female + CCP_member + age, data = china_isolation_data)
 
-mod5 = lm(isolation ~ human_interaction*urbanicity + online_offline + gen_social_med + ses + female + CCP_member + age, data = china_isolation_data)
+mod5short = lm(isolation ~ human_interaction*urbanicity + online_offline + gen_social_med + ses + female + CCP_member + age, data = china_isolation_data)
 
-mod6 = lm(isolation ~ online_offline*urbanicity + human_interaction + gen_social_med + ses + female + CCP_member + age, data = china_isolation_data)
+mod6short = lm(isolation ~ online_offline*urbanicity + human_interaction + gen_social_med + ses + female + CCP_member + age, data = china_isolation_data)
 
-mod7 = lm(isolation ~ gen_social_med*urbanicity + human_interaction + online_offline + ses + female + CCP_member + age, data = china_isolation_data)
+mod7short = lm(isolation ~ gen_social_med*urbanicity + human_interaction + online_offline + ses + female + CCP_member + age, data = china_isolation_data)
 
 n <- "▲, ▼ indicates p>0.05"
 
-mods <- list(mod4, mod5, mod6, mod7)
+mods_soc <- list(mod4short, mod5short, mod6short, mod7short)
 
 # Remove the number estimates
-mod_list <- modelsummary(mods, output = "modelsummary_list")
-mod_list <- replace_estimates(mod_list)
+mod_list_soc <- modelsummary(mods_soc, output = "modelsummary_list")
+mod_list_soc_update <- as.list(mod_list_soc)
+mod_list_soc_update <- replace_estimates(mod_list_soc_update)
 
-socisotable <- modelsummary(mod_list, 
+socisotable <- modelsummary(mod_list_soc_update, 
              coef_omit = ".*Connect|.*Intercept|.*No|.*Yes",
              coef_rename = c("ses" = "SES",
                              "female" = "Female",
@@ -845,19 +849,19 @@ plotOutput("margins")
 ```
 
 ```{r marginsetup, context="server-start"}
-  mod5 = lm(isolation ~ human_interaction*urbanicity + online_offline 
+  mod5margin = lm(isolation ~ human_interaction*urbanicity + online_offline 
             + gen_social_med + ses + female + CCP_member + age, 
             data = china_isolation_data)
 
-  mod6 = lm(isolation ~ online_offline*urbanicity + human_interaction 
+  mod6margin = lm(isolation ~ online_offline*urbanicity + human_interaction 
             + gen_social_med + ses + female + CCP_member + age, 
             data = china_isolation_data)
 
-  mod7 = lm(isolation ~ gen_social_med*urbanicity + human_interaction 
+  mod7margin = lm(isolation ~ gen_social_med*urbanicity + human_interaction 
             + online_offline + ses + female + CCP_member + age, 
             data = china_isolation_data)
   
-  a <- plot_model(mod5, type = "pred", title = "",
+  a <- plot_model(mod5margin, type = "pred", title = "",
                   terms = c("human_interaction", "urbanicity"), 
                   legend.title = "Urbanicity") +
     scale_color_discrete(labels = c("Village", "Small City", 
@@ -866,7 +870,7 @@ plotOutput("margins")
     xlab("Digital Human Interaction") +
     theme(panel.border = element_rect(color = "black",fill = NA, size = 1))
 
-  b <- plot_model(mod6, type = "pred", title = "", 
+  b <- plot_model(mod6margin, type = "pred", title = "", 
                   terms = c("online_offline", "urbanicity"), 
                   legend.title = "Urbanicity") +
     scale_color_discrete(labels = c("Village", "Small City", 
@@ -875,7 +879,7 @@ plotOutput("margins")
     xlab("Online to Offline Relationships") +
     theme(panel.border = element_rect(color = "black",fill = NA, size = 1))
 
-  c <- plot_model(mod7, type = "pred", title = "", 
+  c <- plot_model(mod7margin, type = "pred", title = "", 
                   terms = c("gen_social_med", "urbanicity"), 
                   legend.title = "Urbanicity") +
     scale_color_discrete(labels = c("Village", "Small City", 
@@ -928,7 +932,7 @@ mod1_ordfull = polr(human_interaction_cat ~ ses + female + CCP_member + age, dat
 mod2_ordfull = polr(online_offline_cat ~ ses + female + CCP_member + age, data = china_isolation_data, Hess=TRUE)
 mod3full = lm(gen_social_med ~ ses + female + CCP_member + age, data = china_isolation_data)
 
-modelsfull <- list(
+modelsfull_prof <- list(
   "Human Interaction" = mod1_ordfull,
   "Online/Offline Interaction" = mod2_ordfull,
   "General Social Media" = mod3full
@@ -941,7 +945,7 @@ gof.included <- list(
 
 n <- "Human Interaction and Offline/Online Relationships estimates are derived from ordered logit and General Social Media from ordinary least squares."
 
-modelsummary(modelsfull, 
+modelsummary(modelsfull_prof, 
              coef_omit = ".*Connect|.*Intercept|.*No|.*Yes",
              coef_rename = c("ses" = "SES",
                              "female" = "Female",
@@ -967,9 +971,9 @@ mod7full = lm(isolation ~ gen_social_med*urbanicity + human_interaction + online
 
 n <- "Estimates are derived using ordinary least squares"
 
-modsfull <- list(mod4full, mod5full, mod6full, mod7full)
+modsfull_soc <- list(mod4full, mod5full, mod6full, mod7full)
 
-modelsummary(modsfull, 
+modelsummary(modsfull_soc, 
              coef_omit = ".*Connect|.*Intercept|.*No|.*Yes",
              coef_rename = c("ses" = "SES",
                              "female" = "Female",
