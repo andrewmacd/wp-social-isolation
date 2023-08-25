@@ -32,6 +32,7 @@ library(kableExtra)
 library(ggthemes)
 library(MASS)
 library(sjPlot)
+library(ggResidpanel)
 
 theme_set(theme_tufte())
 
@@ -50,17 +51,17 @@ The existing literature on social isolation and social media use generally finds
 
 Initially, scholars imagined that social media would create more opportunities for users to create unique and fulfilling social relationships. The early theorizing about the possible benefits of social media hypothesized three important mechanisms by which social media could decrease loneliness. 1) creating more opportunities for online to offline meetups and 2) helping to alleviate feelings of isolation for those who have difficulty making in-person social connections via joining an online communities, and 3) facilitating keeping in touch with family and friends [@ellison2007; @steinfield2008; @subrahmanyam2008].
 
-More recent studies on the subject have found significantly more mixed and often negative evidence regarding the impact of social media on feelings of isolation. Primack et al. found a negative relationship between social media use and social isolation in youth in a representative sample [@primack2017]. A meta-review of the literature on adolescent social media usage notes that while the effect size is often small the relationship in most studies is negative [@valkenburg2022]. There are relatively fewer studies that consider all ages. However, those that have been conducted also generally find a negative (if modest) relationship [@appel2020]. More recent research has suggested that the effect of social media on measures like social isolation may be highly heterogeneous across individuals, a finding that would help reconcile some of the discrepancies in the literature [@beyens2020; @ostic2021].
+More recent studies on the subject have found significantly more mixed and often negative evidence regarding the impact of social media on feelings of isolation. Primack et al. found a negative relationship between social media use and social isolation in youth in a representative sample [@primack2017]. A meta-review of the literature on adolescent social media usage notes that while the effect size is often small the relationship in most studies on social media's linkage to ill-being is negative [@valkenburg2022] while emphasizing the importance of heterogeneous effects. There are relatively fewer studies that consider all ages. However, those that have been conducted also emphasize that the relationship between social media use and well-being has possible negative effects but the effects seem to vary by personality type [@appel2020]. More recent research has reinforced the finding that the effect of social media on measures like social isolation may be highly heterogeneous across individuals [@beyens2020; @ostic2021].
 
 While most of the studies agree that the causal direction flows from social media use to feelings of isolation (though see [@nowland2018; @kim2017]), there is disagreement among authors about the specific mechanisms and causal pathways through which this relationship exists. One set of mechanisms find that the social media itself that is the problem. Cyberbullying, or more generally, repeated and aggressive online attacks against users has been systematically linked to feelings of social isolation [@ademiluyi2022]. Upward comparisons of others and the weak nature of online connections has been found to generate social anxiety and social isolation [@alabri2022; @büttner2022]. Another set of mechanisms primarily concern themselves with the physical changes that social media causes. Social media use has been shown to displace face to face activity, which leads to greater social isolation [@larson2018]. Heavy social media use also decreases hours of sleep, leading to greater feelings of anxiety and more social isolation [@twenge2017]. The current research suggests that which of these mechanisms is dominant depends on the age/demographic group in question and the societal context [@twenge2019].
 
 Most of the existing research on the subject focuses on Western highly developed societies, and this focus may limit variation on key independent variables given the similar social and institutional context in which users are embedded. To address this problem, this study aims to understand how these complex dynamics interact in the non-Western setting of China. Relatively little is known about China's level of social isolation, though what evidence that does exist suggests that it is on the rise. Twenge et al.'s study found that adolescent feelings of loneliness have generally been on the rise in comparable East Asian countries [@twenge2021]. News reports have highlighted the increasing number of people who consider themselves to be online outcasts or losers (*diaosi*) [@nan2013; @szablewicz2014; @chinas2016]. We do not aim to make a direct comparison between China and Western countries but rather highlight the way in which China's unique context helps shed light on which contextual factors matter in understanding the linkage between the two variables.
 
-The most important of these contextual factor in China is that social media space that is highly controlled online environment. Many people are aware that the Chinese government heavily censors politically sensitive content on online platforms. However, fewer are aware that the Chinese government spends as much if not more effort to clean up non-political but negative or distressing content on the Chinese internet, such as scams, instances of cyber bullying, disturbing videos, and vulgar content [@wang2020]. This control impulse also extends content the government views as spiritually polluting, such as pornography, scantily dressed women, and other escapist content. While the Chinese government and online platforms are not 100 per cent effective in their ability to completely stamp out such content, the default is that such content is actively restricted, while US platforms tent to take a more pro-speech regulatory position [@liu2022]. If one of the main mechanisms through which social media promotes social isolation occurs is exposure to negative content, then this online environment should lead to a weaker relationship between social media use and isolation. Suggestive of this is a a study by Liu and Liu that finds those who consumed more commercialized and sensationalized media reported more trauma during the first COVID-19 in China than those who followed government sources [@liu2020].
+The most important of these contextual factor in China is that social media space that is highly controlled online environment. Many people are aware that the Chinese government heavily censors politically sensitive content on online platforms. However, fewer are aware that the Chinese government spends as much, if not more, effort to clean up non-political as negative or distressing content on the Chinese internet, such as scams, instances of cyber bullying, disturbing videos, and vulgar content [@wang2020]. This control impulse also extends content the government views as spiritually polluting, such as pornography, scantily dressed women, and other escapist content. While the Chinese government and online platforms are not 100 per cent effective in their ability to completely stamp out such content, the default is that such content is actively restricted, while US platforms tent to take a more pro-speech regulatory position [@liu2022]. If one of the main mechanisms through which social media promotes social isolation occurs is exposure to negative content, then this online environment should lead to a weaker relationship between social media use and isolation. Suggestive of this is a a study by Liu and Liu that finds Chinese who consumed who consumed more commercialized and sensationalized media reported more trauma during the first COVID-19 outbreak in China than those who followed government sources [@liu2020].
 
 On the other hand, China also has a highly robust online influencer culture. While social media influencers are a global phenomena, China has perhaps the most commercialized version of influencing. Social media influencers are developed by large agencies and work in an almost assembly-line fashion to promote products on livestreams or pitch sponsor products. In this influencer culture, less attention is paid to authenticity and personality and relatively more emphasis is placed on consumerism, brand promotion, and image [@tam2019; @wei2023]. Given that previous research has suggested one of the main channels through which social media creates feelings of isolation is negative personal comparisons with online content (so-called "FOMO" - fear of missing out), heavy social media use may increase the strength of the relationship between social media use and social isolation.
 
-Aditionally, China's social media environment is relatively unique in that the dominant messaging platform is also the largest social media app (WeChat). Users can use it simply to chat with family and friends, they can use it to post photos and other content about their life in a feed that works similarly to Facebook, or they can browse videos of others in a method similar to Tiktok. Previous research has indicated that while, on the whole, social media increases social isolation, for users that primarily use it to contact friends and family, its use can counteract the negative effects [@hajek2019; @lim2020]. Given the ubiquity of WeChat in China, we expect to find similar results.
+Additionally, China's social media environment is relatively unique in that the dominant messaging platform is also the largest social media app (WeChat). Users can use it simply to chat with family and friends, they can use it to post photos and other content about their life in a feed that works similarly to Facebook, or they can browse videos of others in a method similar to Tiktok. Previous research has indicated that while, on the whole, social media increases social isolation, for users that primarily use it to contact friends and family, its use can counteract the negative effects [@hajek2019; @lim2020]. Given the ubiquity of WeChat in China, we expect to find similar results.
 
 Finally, the nexus of social isolation and social media use in China has played out in the context of one of the most rapid periods of urbanization in human history. Hundreds of millions of people have shifted from rural subsistence farming to participating in an urban market economy. The existing literature finds that urbanicity is an important factor in levels and mechanisms for social isolation; many studies of Western societies have found that rural residents, while having stronger familial bonds, also can more easily experience social isolation without those bonds [@kaye2017; @koning2017; @henning-smith2018]. In China, less is known about the differential effects of the urban rural divide on feelings of social isolation but the research that does exist suggests that urban environments can be especially isolating, particularly for rural to urban migrants particularly due to lack of access to traditional support systems and familial connections [@li2017].
 
@@ -283,7 +284,7 @@ Cyberoptimists heralded the internet as means by which people could connect, bui
 
 We also found no evidence that the internet could serve as bridge to build connections for those living outside of cities. The optimistic view here would be that the internet could lower the costs of making connections for those who have less social opportunity, those living in less populated areas, and as a result, help them to feel less isolated. We, in fact, found the opposite. Internet communication had either less positive effect or more negative effect on feelings of social isolation for those living in less urban spaces.
 
-Our contribution here is that we look at some well-established theoretical arguments in a context outside that of where most of the research centered on these type questions has examined. While our study is far from the last word on the subject, these results suggest that the mechanisms that link social media use and social isolation are relatively context-insensitive.
+Our contribution here is that we look at some well-established theoretical arguments in a context outside that of where most of the research centered on these type questions has examined. While our study is far from the last word on the subject, these results suggest that the mechanisms that link social media use and social isolation are relatively consistent across countries.
 
 ## References
 
@@ -294,7 +295,71 @@ Our contribution here is that we look at some well-established theoretical argum
 
 ### Variable Operationalization
 
+SES is an additive index of these two questions regarding income and education. Each of the following questions were rescaled to range from 0 through 1, then the two questions were summed, and then rescaled to range from 0 through 1 again.
+
+-   Here is a table showing the range of monthly incomes that people have. Which of the letters on this table best represents the total monthly income of your household (after tax)?
+
+    -   0 - 3,000,
+
+    -   3,000 - 6,000,
+
+    -   6,000 - 10,000,
+
+    -   10,000 - 15,000,
+
+    -   15,000 - 25,000,
+
+    -   25,000 - 40,000,
+
+    -   More than 40,000
+
+-   What is the highest level of education that you have obtained?
+
+    -   No formal education,
+
+    -   Primary,
+
+    -   Middle school,
+
+    -   High school,
+
+    -   University,
+
+    -   Advanced Studies/Graduate School
+
+Other important predictor variables are operationalized as follows:
+
+-   Gender
+
+    -   0 = male,
+
+    -   1 = female
+
+-   Are you a member or probationary member of the CCP?
+
+    -   0 = no,
+
+    -   1 = yes
+
+-   How old are you? (rescaled to range from 0 through 1)
+
+{{< pagebreak >}}
+
 ### Residual Analysis
+
+```{r}
+#| label: fig-resids-human
+#| fig-cap: "Human Interaction Model Residuals"
+
+resid_panel(mod5, plots = "R")
+```
+
+```{r}
+#| label: fig-resids-online-offline
+#| fig-cap: "Online/Offline Model Residuals"
+
+resid_panel(mod6, plots = "R")
+```
 
 ```{r}
 #| label: extra-text
