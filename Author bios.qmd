@@ -1,0 +1,20 @@
+---
+title: "Author bios"
+format: pdf
+---
+
+## Jason Gainous
+
+Dr. Jason Gainous is a Professor of Mass Communications at the Univesrity of Sharjah. His research focuses on information technology and politics. He has published two books, one with Oxford University Press (Tweeting to Power: The Social Media Revolution in American Politics) and one with Rowman and Littlefield (Rebooting American Politics: The Internet Revolution). He has also published various articles in journals including American Politics Research, Democratization, Information, Communication and Society, International Journal of Press/Politics, International Journal of Communication, Journal of Information Technology & Politics, Political Behavior, Political Research Quarterly, Political Communication, Social Science Quarterly, and Statistical Science among others. 
+
+His research has won awards from the American Political Science Association, the Kentucky Political Science Association, the Southwestern Social Science Association, and the Florida Political Science Association. The University of Louisville has also honored him with their most prestigious award for research as well as their most prestigious award for teaching. 
+
+Dr. Gainous is also the Co-Editor in Chief of the Journal of Information Technology & Politics. 
+
+## Andrew W. MacDonald
+
+Andrew W. MacDonald is an Assistant Professor of Social Science at Duke Kunshan University. He primarily works in the area of Chinese public opinion research, having authored nearly a dozen surveys of Chinese attitudes on politics, technology, and social questions. His work on this topic has been published in a wide variety of communication, technology, and experimental design journals.
+
+His latest projects examine how Chinese feel about state versus corporate control of online personal information and how Chinese people read and interpret state propaganda messages. Taken as a whole, his work seeks to complexify simple narratives about Chinese public opinion; that either the public passively accepts state narratives or becomes an all-out regime opponent. In fact, public opinion is surprisingly nuanced given that China is an authoritarian context.
+
+His other interests lie in data visualization and making data science more approachable using new technological tools. He has developed several innovative, web-based approaches for learning statistical concepts and regularly teaches his universities Stats 101 class. 

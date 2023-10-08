@@ -12,25 +12,6 @@ execute:
 keep-tex: true
 bibliography: references.bib
 csl: taylor-and-francis-apa.csl
-author:
-  - name: Jason Gainous
-    affiliations:
-      - name: University of Sharjah
-        department: Department of Mass Communication
-        city: Sharjah
-        country: United Arab Emirates
-    orcid: 0000-0002-3104-2313
-    email: jgainous@sharjah.ac.ae
-  - name: Andrew W. MacDonald
-    affiliations:
-      - name: Duke Kunshan University
-        department: Division of Social Sciences
-        city: Kunshan
-        country: China
-    orcid: 0000-0002-4695-1560
-    email: andrew.macdonald@dukekunshan.edu.cn
-    attributes:
-      corresponding: true
 ---
 
 ```{r}
