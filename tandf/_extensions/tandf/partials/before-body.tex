@@ -1,0 +1,29 @@
+\title{$title$}
+
+
+
+\author{\name{$for(by-author/allbutlast)$$by-author.name.literal$$endfor$\textsuperscript{a}$if(by-author.attributes.corresponding)$\thanks{CONTACT $by-author.name.literal$. Email: $by-author.email$}$endif$ and $for(by-author/last)$$by-author.name.literal$\textsuperscript{b}$if(by-author.attributes.corresponding)$\thanks{CONTACT $by-author.name.literal$. Email: $by-author.email$}$endif$$endfor$}
+\affil{\textsuperscript{a}$for(by-affiliation/allbutlast)$$by-affiliation.department$, $by-affiliation.name$, $by-affiliation.city$, $by-affiliation.country$;$endfor$
+\textsuperscript{b}$for(by-affiliation/last)$$by-affiliation.department$, $by-affiliation.name$, $by-affiliation.city$, $by-affiliation.country$$endfor$}}
+
+%$for(by-author)$\author[$for(by-author.affiliations)$$it.number$$sep$,$endfor$]{$by-author.name.literal$%
+%$if(by-author.attributes.corresponding)$\corref{cor1}$endif$%
+%$if(by-author.note.text)$\fnref{fn$by-author.note.number$}$endif$}
+%$if(by-author.email)$ \ead{$by-author.email$} $endif$
+%$endfor$
+
+%\author{
+%\name{A.~N. Author\textsuperscript{a}\thanks{CONTACT A.~N. Author. Email: latex.helpdesk@tandf.co.uk} and John Smith\textsuperscript{b}}
+%\affil{\textsuperscript{a}Taylor \& Francis, 4 Park Square, Milton Park, Abingdon, UK; \textsuperscript{b}Institut f\"{u}r Informatik, Albert-Ludwigs-Universit\"{a}t, Freiburg, Germany}
+%}
+
+\maketitle
+
+\begin{abstract}
+$abstract$
+\end{abstract}
+
+\begin{keywords}
+    $for(keywords/allbutlast)$$keywords$, $endfor$
+    $for(keywords/last)$$keywords$$endfor$
+\end{keywords}
