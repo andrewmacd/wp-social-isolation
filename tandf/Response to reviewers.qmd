@@ -1,0 +1,66 @@
+---
+title: "Response to reviewers"
+format: pdf
+---
+
+## Reviewer 1
+
+*However, the introduction of the current manuscript should be rewritten. The authors used lots of sentences to describe the background of social media use in China to introduce the research questions. This is unhelpful. It is suggested to examine the related theories to answer, why the phenomenon of social media use in Mainland China may be different from others.*
+
+We introduce the context of China primarily in the Literature Review and Theory section, so we are assuming this is the section to which the reviewer is referring. We agree that the China section is perhaps too long. We have trimmed it and added links to relevant theories.
+
+## Reviewer 2
+
+*1.	In the abstract, there is more information that needs to be added: a clear aim of this research and a few words about the sample size.*
+
+Abstract rewritten and sample size added.
+
+*2.	What is FOMO in abstract? Needs to be clarified here to be understood by the readers.*
+
+Definition added.
+
+*3.	References need to be added in the Introduction section. Also, I suggest merging the introduction section with the literature review and theory section.*
+
+References added. We welcome additional feedback on how to merge the introduction and literature review sections but we believe after deleting the first paragraph of the lit review section, there is a clearer delineation between the two sections.
+
+*4.	In Literature Review and Theory subtitle, the first sentence needs a reference.*
+
+The sentence is deleted as per the comment to point 5 below.
+
+*5.	The second and third sentence in the Literature Review and Theory section (first paragraph) can be moved in the end of the introduction section or can be omitted.*
+
+The sentences have been deleted, additionally, the first sentence read awkwardly without the following sentences and did not add significantly to the section, so we also chose to delete that sentence.
+
+*6.	Reference is needed in the first sentence of the second paragraph in the Literature Review and Theory section.*
+
+The references for this claim was located at the end of the paragraph where the arguments of the authors were described in detail. Though, we can see how it would be confusing. We moved the references to the end of the first sentence.
+
+*7.	Nothing in the literature review about social media addiction. I suggest to see: Social isolation, social support and their relationship with smartphone addiction; examples: The relationship between addiction to smartphone usage and depression among adults: A crosssectional study, Smartphone addiction among university students in the light of some variables, and Examining the effects of motives and gender differences on smartphone addiction.*
+
+
+
+*8.	I believe that the testable hypotheses are clear but I suggest to be more in a direct way. Why use “weak or possibly” for example? Why “a strongly”? The results will explain these.*
+
+Fair point. Qualifying words have been removed.
+
+*9.	Also, a clear research question need to be stated in the end of the introduction section.*
+
+We re-wrote the second half of the introduction to clarify our research question and contribution.
+
+*10.	How can the researchers explain that the sample represent ALL China? We know the cultural diversity in a “BIG” China.*
+
+*11.	Need more explanation about the sample. Researchers stated it is random sample. How? Clarification is needed.*
+
+
+
+*12.	I suggest that the method section needs to start with sample.*
+
+*13.	No need for the margin in the end of page 5. This information is vital and essential procedures. Need to be moved in the body of the research.*
+
+*14.	Validity and reliability are needed for thew measurements.*
+
+*15.	Sample description is needed in the method section, sample.*
+
+*16.	Figure ?? and Table ?? are  noticed. Need to number the figures and tables.*
+
+This may be a font issue, as our version of the PDF does not contain any missing figure or table numbers, nor does the LaTeX file. Happy to help troubleshoot further but everything on our end looks complete.
