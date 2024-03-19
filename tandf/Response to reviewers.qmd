@@ -7,7 +7,7 @@ format: pdf
 
 *However, the introduction of the current manuscript should be rewritten. The authors used lots of sentences to describe the background of social media use in China to introduce the research questions. This is unhelpful. It is suggested to examine the related theories to answer, why the phenomenon of social media use in Mainland China may be different from others.*
 
-We introduce the context of China primarily in the Literature Review and Theory section, so we are assuming this is the section to which the reviewer is referring. We agree that the China section is perhaps too long. We have trimmed it and added links to relevant theories.
+We introduce the context of China primarily in the Literature Review and Theory section, so we are assuming this is the section to which the reviewer is referring. We agree that the China section is perhaps too long. We have trimmed it and added linkages to relevant theories.
 
 ## Reviewer 2
 
@@ -50,8 +50,6 @@ We re-wrote the second half of the introduction to clarify our research question
 *10.	How can the researchers explain that the sample represent ALL China? We know the cultural diversity in a “BIG” China.*
 
 *11.	Need more explanation about the sample. Researchers stated it is random sample. How? Clarification is needed.*
-
-
 
 *12.	I suggest that the method section needs to start with sample.*
 
