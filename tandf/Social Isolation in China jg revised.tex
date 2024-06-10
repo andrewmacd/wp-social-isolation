@@ -3,31 +3,10 @@
 \PassOptionsToPackage{hyphens}{url}
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
-\documentclass[]{interact}
-
-\usepackage{epstopdf}% To incorporate .eps illustrations using PDFLaTeX, etc.
-\usepackage[caption=false]{subfig}% Support for small, `sub' figures and tables
-
-\usepackage[natbibapa,nodoi]{apacite}% Citation support using apacite.sty. Commands using natbib.sty MUST be deactivated first!
-\setlength\bibhang{12pt}% To set the indentation in the list of references using apacite.sty. Commands using natbib.sty MUST be deactivated first!
-\renewcommand\bibliographytypesize{\fontsize{10}{12}\selectfont}% To set the list of references in 10 point font using apacite.sty. Commands using natbib.sty MUST be deactivated first!
-
-\let\subcaption\relax
-\let\subfloat\relax
-
-\theoremstyle{plain}% Theorem-like structures provided by amsthm.sty
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{proposition}[theorem]{Proposition}
-
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-
-\theoremstyle{remark}
-\newtheorem{remark}{Remark}
-\newtheorem{notation}{Notation}
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
 
 \usepackage{amsmath,amssymb}
 \usepackage{iftex}
@@ -62,7 +41,7 @@
 \makeatother
 \usepackage{xcolor}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
-\setcounter{secnumdepth}{5}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 % Make \paragraph and \subparagraph free-standing
 \ifx\paragraph\undefined\else
   \let\oldparagraph\paragraph
@@ -156,6 +135,7 @@
     table-align-text-post=false
   ]}
   
+\KOMAoption{captions}{tableheading}
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -215,19 +195,13 @@ Communication, China},
   urlcolor={Blue},
   pdfcreator={LaTeX via pandoc}}
 
-
-\begin{document}
 \title{Lonely and online: an investigation of social media use and
 social isolation in China}
+\author{}
+\date{2024-06-10}
 
-
-
-\author{\name{\textsuperscript{a} and }
-\affil{\textsuperscript{a}
-\textsuperscript{b}}}
-
+\begin{document}
 \maketitle
-
 \begin{abstract}
 Research on the link between social media and well being has lead to
 ambiguous findings - some research has found a positive, negative, and
@@ -245,10 +219,6 @@ institutional context may not play an important role in the social media
 - social isolation relationship.
 \end{abstract}
 
-\begin{keywords}
-    Social Isolation, Social Media, Digital Communication, 
-    China
-\end{keywords}
 \newpage{}
 
 \section{Introduction}\label{introduction}
@@ -287,7 +257,7 @@ relationship. These results are consistent with a mechanism that links
 the two via the harmfulness of being exposed to constant online
 comparisons (so-called FOMO or fear of missing out). However, the
 contextual differences of the Chinese internet compared to the Western
-intern do not appear to significantly alter the relationship.
+internet do not appear to significantly alter the relationship.
 
 \section{Literature Review and
 Theory}\label{literature-review-and-theory}
@@ -437,7 +407,19 @@ margin of error.\footnote{We were able to first collect a small sample
   (\(n=286\)) to check the reliability and adjust the instrument after
   before proceeding with the final data collection. We made three
   adjustments, none of which are related to the measures used in the
-  current study.}
+  current study.} While our sample is selected randomly from Qualtrics'
+online user panel, it isn't representative of China's entire population
+due to its internet-based recruitment methods. The sample, however,
+aligns well with Chinese internet users, crucial for our internet
+effects research. Compared to national data, our sample skews younger
+and more educated but is similar in income and gender.\footnote{See
+  https://data.worldbank.org/country/china (go to the Country Profile),
+  and
+  https://www.cnnic.com.cn/AU/Introduction/Introduction/201208/t20120815\_33295.htm.}
+These demographics reflect the global digital divide and are in line
+with expectations for internet users in developing regions. Our findings
+are particularly relevant for understanding digital media's impact among
+active internet users in China.
 
 Our dependent variable, \emph{social isolationism}, is a three-item
 additive index. Respondents were given the following introduction: The
@@ -463,7 +445,7 @@ distribution indicates quite a bit of variance (\(\mu = 0.41\),
 
 \centering{
 
-\includegraphics{Social-Isolation-in-China_files/figure-pdf/fig-social-iso-dist-1.pdf}
+\includegraphics{Social-Isolation-in-China-jg-revised_files/figure-latex/fig-social-iso-dist-1.pdf}
 
 }
 
@@ -509,7 +491,7 @@ internet to facilitate social relations.
 
 \centering{
 
-\includegraphics{Social-Isolation-in-China_files/figure-pdf/fig-var-dist-1.pdf}
+\includegraphics{Social-Isolation-in-China-jg-revised_files/figure-latex/fig-var-dist-1.pdf}
 
 }
 
@@ -535,18 +517,26 @@ other sites and services that allow users to interact with each other)?
 days per week, Less often, Never). Each was recoded so that higher
 values represented more social media use, rescaled to range from 0
 through 1, added together, and then again, rescaled to range from 0
-through 1 maintaining all original intervals. The distribution of this
-index is presented in Figure~\ref{fig-sm-use-dist}. The distribution is
-relatively normal and tightly centered around the mean 0.63 with a
-standard deviation of 0.17, but there is a left skew suggesting that a
-portion of the population is not that social media active, but clearly
-the bulk of the population are.
+through 1 maintaining all original intervals.The Chronbach's alpha was
+relatively low for these three items (\(\alpha = 0.31\)), but we
+proceeded with the construction of this index because, first, the face
+validity is high. Simply, those who claim to use social media generally
+more often, claim to read political news more often, and claim to use it
+more than they did in the past, are certainly likely to be more frequent
+social media users than those who do not do all these things.Second, we
+confirmed that these three items were all positively correlated with
+each other (p \textless{} 0.0001 for all pairwise relationships). The
+distribution of this index is presented in Figure~\ref{fig-sm-use-dist}.
+The distribution is relatively normal and tightly centered around the
+mean 0.63 with a standard deviation of 0.17, but there is a left skew
+suggesting that a portion of the population is not that social media
+active, but clearly the bulk of the population are.
 
 \begin{figure}
 
 \centering{
 
-\includegraphics{Social-Isolation-in-China_files/figure-pdf/fig-sm-use-dist-1.pdf}
+\includegraphics{Social-Isolation-in-China-jg-revised_files/figure-latex/fig-sm-use-dist-1.pdf}
 
 }
 
@@ -570,7 +560,7 @@ about 5\% say they live in villages.
 
 \centering{
 
-\includegraphics{Social-Isolation-in-China_files/figure-pdf/fig-urban-dist-1.pdf}
+\includegraphics{Social-Isolation-in-China-jg-revised_files/figure-latex/fig-urban-dist-1.pdf}
 
 }
 
@@ -743,7 +733,7 @@ and urbanicity only slightly misses the arbitrary \(0.05\) threshold
 
 \centering{
 
-\includegraphics{Social-Isolation-in-China_files/figure-pdf/fig-social-isolation-interactions-1.pdf}
+\includegraphics{Social-Isolation-in-China-jg-revised_files/figure-latex/fig-social-isolation-interactions-1.pdf}
 
 }
 
@@ -1103,7 +1093,7 @@ Other important predictor variables are operationalized as follows:
 
 \centering{
 
-\includegraphics{Social-Isolation-in-China_files/figure-pdf/fig-resids-human-1.pdf}
+\includegraphics{Social-Isolation-in-China-jg-revised_files/figure-latex/fig-resids-human-1.pdf}
 
 }
 
@@ -1115,7 +1105,7 @@ Other important predictor variables are operationalized as follows:
 
 \centering{
 
-\includegraphics{Social-Isolation-in-China_files/figure-pdf/fig-resids-online-offline-1.pdf}
+\includegraphics{Social-Isolation-in-China-jg-revised_files/figure-latex/fig-resids-online-offline-1.pdf}
 
 }
 
