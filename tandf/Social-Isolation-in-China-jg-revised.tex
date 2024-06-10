@@ -98,38 +98,28 @@
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-% definitions for citeproc citations
-\NewDocumentCommand\citeproctext{}{}
-\NewDocumentCommand\citeproc{mm}{%
-  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
-\makeatletter
- % allow citations to break across lines
- \let\@cite@ofmt\@firstofone
- % avoid brackets around text for \cite:
- \def\@biblabel#1{}
- \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
-\makeatother
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
 \newlength{\csllabelwidth}
 \setlength{\csllabelwidth}{3em}
-\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
- {\begin{list}{}{%
-  \setlength{\itemindent}{0pt}
-  \setlength{\leftmargin}{0pt}
-  \setlength{\parsep}{0pt}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
   % turn on hanging indent if param 1 is 1
   \ifodd #1
-   \setlength{\leftmargin}{\cslhangindent}
-   \setlength{\itemindent}{-1\cslhangindent}
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
   \fi
   % set entry spacing
-  \setlength{\itemsep}{#2\baselineskip}}}
- {\end{list}}
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
 \usepackage{calc}
-\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \usepackage{booktabs}
@@ -156,6 +146,10 @@
     table-align-text-post=false
   ]}
   
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
 \makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
@@ -192,16 +186,23 @@
 \newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
 \makeatother
 \makeatletter
-\makeatother
-\makeatletter
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
 \makeatother
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-\usepackage{bookmark}
-
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
@@ -248,10 +249,12 @@ institutional context may not play an important role in the social media
 \begin{keywords}
     Social Isolation, Social Media, Digital Communication, 
     China
-\end{keywords}
+\end{keywords}\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, frame hidden, enhanced, borderline west={3pt}{0pt}{shadecolor}, sharp corners, boxrule=0pt, interior hidden]}{\end{tcolorbox}}\fi
+
 \newpage{}
 
-\section{Introduction}\label{introduction}
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
 
 Research is quite mixed when it comes to identifying the relationship
 between social media use and feelings of isolationism. Early research
@@ -289,8 +292,9 @@ comparisons (so-called FOMO or fear of missing out). However, the
 contextual differences of the Chinese internet compared to the Western
 internet do not appear to significantly alter the relationship.
 
+\hypertarget{literature-review-and-theory}{%
 \section{Literature Review and
-Theory}\label{literature-review-and-theory}
+Theory}\label{literature-review-and-theory}}
 
 Initially, scholars imagined that social media would create more
 opportunities for users to create unique and fulfilling social
@@ -416,8 +420,9 @@ hypotheses that shed light on our research question.
   media use and social isolation
 \end{itemize}
 
+\hypertarget{data-measurement-and-descriptives}{%
 \section{Data, Measurement, and
-Descriptives}\label{data-measurement-and-descriptives}
+Descriptives}\label{data-measurement-and-descriptives}}
 
 The data used in this study are original. We designed a survey
 instrument in English, and translated it into Chinese, to measure a
@@ -473,16 +478,14 @@ distribution indicates quite a bit of variance (\(\mu = 0.41\),
 
 \begin{figure}
 
-\centering{
-
-\includegraphics{Social-Isolation-in-China-jg-revised_files/figure-pdf/fig-social-iso-dist-1.pdf}
+{\centering \includegraphics{Social-Isolation-in-China-jg-revised_files/figure-pdf/fig-social-iso-dist-1.pdf}
 
 }
 
 \caption{\label{fig-social-iso-dist}Distribution of Social Isolationism
 Index}
 
-\end{figure}%
+\end{figure}
 
 We have several primary independent variables including human
 interaction, online to offline relationships, general social media use,
@@ -519,16 +522,14 @@ internet to facilitate social relations.
 
 \begin{figure}
 
-\centering{
-
-\includegraphics{Social-Isolation-in-China-jg-revised_files/figure-pdf/fig-var-dist-1.pdf}
+{\centering \includegraphics{Social-Isolation-in-China-jg-revised_files/figure-pdf/fig-var-dist-1.pdf}
 
 }
 
 \caption{\label{fig-var-dist}Primary Independent Variables
 Distributions}
 
-\end{figure}%
+\end{figure}
 
 We measured general social media use with an index based on the
 following three items: 1) About how many hours a day would you estimate
@@ -564,15 +565,13 @@ active, but clearly the bulk of the population are.
 
 \begin{figure}
 
-\centering{
-
-\includegraphics{Social-Isolation-in-China-jg-revised_files/figure-pdf/fig-sm-use-dist-1.pdf}
+{\centering \includegraphics{Social-Isolation-in-China-jg-revised_files/figure-pdf/fig-sm-use-dist-1.pdf}
 
 }
 
 \caption{\label{fig-sm-use-dist}General Social Media Use Distribution}
 
-\end{figure}%
+\end{figure}
 
 Our final primary independent variable, urbanicity, was measured using a
 single item: Which of these best describes the place in which you live?
@@ -588,15 +587,13 @@ about 5\% say they live in villages.
 
 \begin{figure}
 
-\centering{
-
-\includegraphics{Social-Isolation-in-China-jg-revised_files/figure-pdf/fig-urban-dist-1.pdf}
+{\centering \includegraphics{Social-Isolation-in-China-jg-revised_files/figure-pdf/fig-urban-dist-1.pdf}
 
 }
 
 \caption{\label{fig-urban-dist}Urbanicity Distribution}
 
-\end{figure}%
+\end{figure}
 
 Our modeling strategy that follows is straightforward. We begin by
 modeling each of our internet communication independent variables as
@@ -617,7 +614,8 @@ indicators, respectively, with our measure of urbanicity. This allows us
 to test whether the observed additive effects are stronger for those
 living outside cities.
 
-\section{Results}\label{results}
+\hypertarget{results}{%
+\section{Results}\label{results}}
 
 Given that the first two dependent variables (human interaction, online
 to offline to offline relationships) in our profile models are
@@ -630,12 +628,9 @@ using ordered logit. Because our measure of general social media is
 based on an additive index, we treat it as continuous, and accordingly
 fit a linear model.
 
+\hypertarget{tbl-profile-models}{}
 \begin{table}
-
-\caption{\label{tbl-profile-models}Modeling Profiles of Digital
-Communication}
-
-\centering{
+\caption{\label{tbl-profile-models}Modeling Profiles of Digital Communication }\tabularnewline
 
 \centering
 \begin{threeparttable}
@@ -663,10 +658,7 @@ R2 &  &  & \num{0.05}\\
 \item Human Interaction and Offline/Online Relationships estimates are derived from ordered logit and General Social Media from ordinary least squares.
 \end{tablenotes}
 \end{threeparttable}
-
-}
-
-\end{table}%
+\end{table}
 
 The results of our profile models are presented in
 Table~\ref{tbl-profile-models}. When it comes to SES, the relationship
@@ -686,11 +678,9 @@ The internet communication indicators are our primary independent
 variables, so these profile models give us a sense for whom they matter
 the most when it comes to deterring social isolation.
 
+\hypertarget{tbl-social-isolation-models}{}
 \begin{table}
-
-\caption{\label{tbl-social-isolation-models}Modeling Social Isolation}
-
-\centering{
+\caption{\label{tbl-social-isolation-models}Modeling Social Isolation }\tabularnewline
 
 \centering
 \begin{threeparttable}
@@ -731,10 +721,7 @@ R2 & \num{0.08} & \num{0.08} & \num{0.09} & \num{0.08}\\
 \item Estimates are derived using ordinary least squares
 \end{tablenotes}
 \end{threeparttable}
-
-}
-
-\end{table}%
+\end{table}
 
 The results of our models of social isolation are presented in
 Table~\ref{tbl-social-isolation-models}. The additive estimates in model
@@ -761,16 +748,14 @@ and urbanicity only slightly misses the arbitrary \(0.05\) threshold
 
 \begin{figure}
 
-\centering{
-
-\includegraphics{Social-Isolation-in-China-jg-revised_files/figure-pdf/fig-social-isolation-interactions-1.pdf}
+{\centering \includegraphics{Social-Isolation-in-China-jg-revised_files/figure-pdf/fig-social-isolation-interactions-1.pdf}
 
 }
 
 \caption{\label{fig-social-isolation-interactions}Modeling Social
 Isolation: Interaction Results}
 
-\end{figure}%
+\end{figure}
 
 The model (2) results are graphed in the upper left hand figure. Here it
 is clear that the negative relationship between digital human
@@ -807,7 +792,8 @@ according to the level of urbanicity (\textbf{H3}) - this matches with
 previous findings that suggest that there is significant heterogeneity
 in the impact of social media on social isloation.
 
-\section{Conclusion}\label{conclusion}
+\hypertarget{conclusion}{%
+\section{Conclusion}\label{conclusion}}
 
 Cyberoptimists heralded the internet as means by which people could
 connect, build social capital, and some suggested this could deter
@@ -849,187 +835,188 @@ personal attributes that moderate and mediate this relationship.
 
 \newpage{}
 
-\section{References}\label{references}
+\hypertarget{references}{%
+\section{References}\label{references}}
 
-\phantomsection\label{refs}
+\hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
-\bibitem[\citeproctext]{ref-ademiluyi2022}
+\leavevmode\vadjust pre{\hypertarget{ref-ademiluyi2022}{}}%
 Ademiluyi, A., Li, C., \& Park, A. (2022). Implications and Preventions
 of Cyberbullying and Social Exclusion in Social Media: Systematic
 Review. \emph{JMIR Formative Research}, \emph{6}(1), e30286.
 \url{https://doi.org/10.2196/30286}
 
-\bibitem[\citeproctext]{ref-alabri2022}
+\leavevmode\vadjust pre{\hypertarget{ref-alabri2022}{}}%
 Alabri, A. (2022). Fear of Missing Out (FOMO): The Effects of the Need
 to Belong, Perceived Centrality, and Fear of Social Exclusion.
 \emph{Human Behavior and Emerging Technologies}, \emph{2022}, e4824256.
 \url{https://doi.org/10.1155/2022/4824256}
 
-\bibitem[\citeproctext]{ref-alhassan2018}
+\leavevmode\vadjust pre{\hypertarget{ref-alhassan2018}{}}%
 Alhassan, A. A., Alqadhib, E. M., Taha, N. W., Alahmari, R. A., Salam,
 M., \& Almutairi, A. F. (2018). The relationship between addiction to
 smartphone usage and depression among adults: a cross sectional study.
 \emph{BMC Psychiatry}, \emph{18}(1), 1--8.
 \url{https://doi.org/10.1186/s12888-018-1745-4}
 
-\bibitem[\citeproctext]{ref-aljomaa2016}
+\leavevmode\vadjust pre{\hypertarget{ref-aljomaa2016}{}}%
 Aljomaa, S. S., Al.Qudah, M. F., Albursan, I. S., Bakhiet, S. F., \&
 Abduljabbar, A. S. (2016). Smartphone addiction among university
 students in the light of some variables. \emph{Computers in Human
 Behavior}, \emph{61}, 155--164.
 \url{https://doi.org/10.1016/j.chb.2016.03.041}
 
-\bibitem[\citeproctext]{ref-al-kandari2021}
+\leavevmode\vadjust pre{\hypertarget{ref-al-kandari2021}{}}%
 Al-Kandari, Y. Y., \& Al-Sejari, M. M. (2021). Social isolation, social
 support and their relationship with smartphone addiction.
 \emph{Information, Communication \& Society}, \emph{24}(13), 1925--1943.
 \url{https://doi.org/10.1080/1369118X.2020.1749698}
 
-\bibitem[\citeproctext]{ref-appel2020}
+\leavevmode\vadjust pre{\hypertarget{ref-appel2020}{}}%
 Appel, M., Marker, C., \& Gnambs, T. (2020). Are Social Media Ruining
 Our Lives? A Review of Meta-Analytic Evidence. \emph{Review of General
 Psychology}, \emph{24}(1), 60--74.
 \url{https://doi.org/10.1177/1089268019880891}
 
-\bibitem[\citeproctext]{ref-beyens2020}
+\leavevmode\vadjust pre{\hypertarget{ref-beyens2020}{}}%
 Beyens, I., Pouwels, J. L., Driel, I. I. van, Keijsers, L., \&
 Valkenburg, P. M. (2020). The effect of social media on well-being
 differs from adolescent to adolescent. \emph{Scientific Reports},
 \emph{10}(1), 10763. \url{https://doi.org/10.1038/s41598-020-67727-7}
 
-\bibitem[\citeproctext]{ref-buxfcttner2022}
+\leavevmode\vadjust pre{\hypertarget{ref-buxfcttner2022}{}}%
 Büttner, C. M., \& Rudert, S. C. (2022). Why didn't you tag me?!: Social
 exclusion from Instagram posts hurts, especially those with a high need
 to belong. \emph{Computers in Human Behavior}, \emph{127}, 107062.
 \url{https://doi.org/10.1016/j.chb.2021.107062}
 
-\bibitem[\citeproctext]{ref-chen2017}
+\leavevmode\vadjust pre{\hypertarget{ref-chen2017}{}}%
 Chen, C., Zhang, K. Z. K., Gong, X., Zhao, S. J., Lee, M. K. O., \&
 Liang, L. (2017). Examining the effects of motives and gender
 differences on smartphone addiction. \emph{Computers in Human Behavior},
 \emph{75}, 891--902. \url{https://doi.org/10.1016/j.chb.2017.07.002}
 
-\bibitem[\citeproctext]{ref-duradoni2020}
+\leavevmode\vadjust pre{\hypertarget{ref-duradoni2020}{}}%
 Duradoni, M., Innocenti, F., \& Guazzini, A. (2020). Well-Being and
 Social Media: A Systematic Review of Bergen Addiction Scales.
 \emph{Future Internet}, \emph{12}(2), 24.
 \url{https://doi.org/10.3390/fi12020024}
 
-\bibitem[\citeproctext]{ref-ellison2007}
+\leavevmode\vadjust pre{\hypertarget{ref-ellison2007}{}}%
 Ellison, N. B., Steinfield, C., \& Lampe, C. (2007). The Benefits of
 Facebook {``}Friends:{''} Social Capital and College Students{'} Use of
 Online Social Network Sites. \emph{Journal of Computer-Mediated
 Communication}, \emph{12}(4), 1143--1168.
 \url{https://doi.org/10.1111/j.1083-6101.2007.00367.x}
 
-\bibitem[\citeproctext]{ref-henning-smith2018}
+\leavevmode\vadjust pre{\hypertarget{ref-henning-smith2018}{}}%
 Henning-Smith, C., Ecklund, A., \& Kozhimannil, K. (2018). RURAL-URBAN
 DIFFERENCES IN SOCIAL ISOLATION AND ITS RELATIONSHIP TO HEALTH.
 \emph{Innovation in Aging}, \emph{2}(Suppl 1), 770.
 \url{https://doi.org/10.1093/geroni/igy023.2851}
 
-\bibitem[\citeproctext]{ref-ivie2020}
+\leavevmode\vadjust pre{\hypertarget{ref-ivie2020}{}}%
 Ivie, E. J., Pettitt, A., Moses, L. J., \& Allen, N. B. (2020). A
 meta-analysis of the association between adolescent social media use and
 depressive symptoms. \emph{Journal of Affective Disorders}, \emph{275},
 165--174. \url{https://doi.org/10.1016/j.jad.2020.06.014}
 
-\bibitem[\citeproctext]{ref-jimuxe9nez2022}
+\leavevmode\vadjust pre{\hypertarget{ref-jimuxe9nez2022}{}}%
 Jiménez, A. C., Vaillancourt, M., Zhu, P., \& Seon, Q. (2022). Social
 Media and Mental Health: What We Know. \emph{McGill Journal of
 Medicine}, \emph{20}(2). \url{https://doi.org/10.26443/mjm.v20i2.852}
 
-\bibitem[\citeproctext]{ref-kaye2017}
+\leavevmode\vadjust pre{\hypertarget{ref-kaye2017}{}}%
 Kaye, L. W. (2017). Older adults, rural living, and the escalating risk
 of social isolation. \emph{Public Policy \& Aging Report}, \emph{27}(4),
 139--144. \url{https://doi.org/10.1093/ppar/prx029}
 
-\bibitem[\citeproctext]{ref-kim2017}
+\leavevmode\vadjust pre{\hypertarget{ref-kim2017}{}}%
 Kim, H. H. (2017). The impact of online social networking on adolescent
 psychological well-being (WB): A population-level analysis of korean
 school-aged children. \emph{International Journal of Adolescence and
 Youth}, \emph{22}(3), 364--376.
 \url{https://doi.org/10.1080/02673843.2016.1197135}
 
-\bibitem[\citeproctext]{ref-koning2017}
+\leavevmode\vadjust pre{\hypertarget{ref-koning2017}{}}%
 Koning, J. L. D., Stathi, A., \& Richards, S. (2017). Predictors of
 loneliness and different types of social isolation of rural-living older
 adults in the United Kingdom. \emph{Ageing \& Society}, \emph{37}(10),
 2012--2043. \url{https://doi.org/10.1017/S0144686X16000696}
 
-\bibitem[\citeproctext]{ref-larson2018}
+\leavevmode\vadjust pre{\hypertarget{ref-larson2018}{}}%
 Larson, L. R., Szczytko, R., Bowers, E. P., Stephens, L. E., Stevenson,
 K. T., \& Floyd, M. F. (2018). Outdoor Time, Screen Time, and Connection
 to Nature: Troubling Trends Among Rural Youth? \emph{Environment and
 Behavior}. \url{https://doi.org/10.1177/0013916518806686}
 
-\bibitem[\citeproctext]{ref-nowland2018}
+\leavevmode\vadjust pre{\hypertarget{ref-nowland2018}{}}%
 Nowland, R., Necka, E. A., \& Cacioppo, J. T. (2018). Loneliness and
 Social Internet Use: Pathways to Reconnection in a Digital World?
 \emph{Perspectives on Psychological Science}, \emph{13}(1), 70--87.
 \url{https://doi.org/10.1177/1745691617713052}
 
-\bibitem[\citeproctext]{ref-ostic2021}
+\leavevmode\vadjust pre{\hypertarget{ref-ostic2021}{}}%
 Ostic, D., Qalati, S. A., Barbosa, B., Shah, S. M. M., Galvan Vela, E.,
 Herzallah, A. M., \& Liu, F. (2021). Effects of social media use on
 psychological well-being: A mediated model. \emph{Frontiers in
 Psychology}, \emph{12}.
 \url{https://www.frontiersin.org/articles/10.3389/fpsyg.2021.678766}
 
-\bibitem[\citeproctext]{ref-primack2017}
+\leavevmode\vadjust pre{\hypertarget{ref-primack2017}{}}%
 Primack, B. A., Shensa, A., Sidani, J. E., Whaite, E. O., Lin, L. yi,
 Rosen, D., Colditz, J. B., Radovic, A., \& Miller, E. (2017). Social
 Media Use and Perceived Social Isolation Among Young Adults in the U.S.
 \emph{American Journal of Preventive Medicine}, \emph{53}(1), 1--8.
 \url{https://doi.org/10.1016/j.amepre.2017.01.010}
 
-\bibitem[\citeproctext]{ref-steinfield2008}
+\leavevmode\vadjust pre{\hypertarget{ref-steinfield2008}{}}%
 Steinfield, C., Ellison, N. B., \& Lampe, C. (2008). Social capital,
 self-esteem, and use of online social network sites: A longitudinal
 analysis. \emph{Journal of Applied Developmental Psychology},
 \emph{29}(6), 434--445.
 \url{https://doi.org/10.1016/j.appdev.2008.07.002}
 
-\bibitem[\citeproctext]{ref-subrahmanyam2008}
+\leavevmode\vadjust pre{\hypertarget{ref-subrahmanyam2008}{}}%
 Subrahmanyam, K., Reich, S. M., Waechter, N., \& Espinoza, G. (2008).
 Online and offline social networks: Use of social networking sites by
 emerging adults. \emph{Journal of Applied Developmental Psychology},
 \emph{29}(6), 420--433.
 \url{https://doi.org/10.1016/j.appdev.2008.07.003}
 
-\bibitem[\citeproctext]{ref-tam2019}
+\leavevmode\vadjust pre{\hypertarget{ref-tam2019}{}}%
 Tam, L. (2019). The China fame factory training online influencers to
 sell. \emph{South China Morning Post}.
 \url{https://www.scmp.com/lifestyle/entertainment/article/2183174/trust-me-you-need-how-chinas-live-streaming-kol-stars-are}
 
-\bibitem[\citeproctext]{ref-twenge2019}
+\leavevmode\vadjust pre{\hypertarget{ref-twenge2019}{}}%
 Twenge, J. M. (2019). More Time on Technology, Less Happiness?
 Associations Between Digital-Media Use and Psychological Well-Being.
 \emph{Current Directions in Psychological Science}, \emph{28}(4),
 372--379. \url{https://doi.org/10.1177/0963721419838244}
 
-\bibitem[\citeproctext]{ref-valkenburg2022}
+\leavevmode\vadjust pre{\hypertarget{ref-valkenburg2022}{}}%
 Valkenburg, P. M., Meier, A., \& Beyens, I. (2022). Social media use and
 its impact on adolescent mental health: An umbrella review of the
 evidence. \emph{Current Opinion in Psychology}, \emph{44}, 58--68.
 \url{https://doi.org/10.1016/j.copsyc.2021.08.017}
 
-\bibitem[\citeproctext]{ref-wang2020}
+\leavevmode\vadjust pre{\hypertarget{ref-wang2020}{}}%
 Wang, J. (2020). \emph{Regulation of digital media platforms: The case
 of china}.
 \url{https://www.fljs.org/banning-regulating-tiktok-addressing-concerns-national-security-privacy-and-online-harms}
 
-\bibitem[\citeproctext]{ref-wei2023}
+\leavevmode\vadjust pre{\hypertarget{ref-wei2023}{}}%
 Wei, A. C. (2023). {`}Wang hong{'} culture booms in China as more young
 people dream of becoming influencers. \emph{The Straits Times}.
 \url{https://www.straitstimes.com/asia/east-asia/wang-hong-culture-booms-in-china-as-more-young-people-dream-of-becoming-influencers}
 
-\bibitem[\citeproctext]{ref-xia1995}
+\leavevmode\vadjust pre{\hypertarget{ref-xia1995}{}}%
 Xia, M. (1995). Changes in the {Pattern} of {Migration} in {Urban}
 {China}. In L. H. Day, M. Xia, \& M. Xia (Eds.), \emph{Migration and
 {Urbanization} in {China}}. Routledge.
 
-\bibitem[\citeproctext]{ref-xu2014}
+\leavevmode\vadjust pre{\hypertarget{ref-xu2014}{}}%
 Xu, A., \& Xia, Y. (2014). The changes in mainland chinese families
 during the social transition: A critical analysis. \emph{Journal of
 Comparative Family Studies}, \emph{45}(1), 31--53.
@@ -1039,10 +1026,12 @@ Comparative Family Studies}, \emph{45}(1), 31--53.
 
 \newpage{}
 
-\section{Online Appendix}\label{online-appendix}
+\hypertarget{online-appendix}{%
+\section{Online Appendix}\label{online-appendix}}
 
+\hypertarget{variable-operationalization}{%
 \subsection{Variable
-Operationalization}\label{variable-operationalization}
+Operationalization}\label{variable-operationalization}}
 
 SES is an additive index of these two questions regarding income and
 education. Each of the following questions were rescaled to range from 0
@@ -1117,32 +1106,29 @@ Other important predictor variables are operationalized as follows:
 
 \newpage{}
 
-\subsection{Residual Analysis}\label{residual-analysis}
+\hypertarget{residual-analysis}{%
+\subsection{Residual Analysis}\label{residual-analysis}}
 
 \begin{figure}
 
-\centering{
-
-\includegraphics{Social-Isolation-in-China-jg-revised_files/figure-pdf/fig-resids-human-1.pdf}
+{\centering \includegraphics{Social-Isolation-in-China-jg-revised_files/figure-pdf/fig-resids-human-1.pdf}
 
 }
 
 \caption{\label{fig-resids-human}Human Interaction Model Residuals}
 
-\end{figure}%
+\end{figure}
 
 \begin{figure}
 
-\centering{
-
-\includegraphics{Social-Isolation-in-China-jg-revised_files/figure-pdf/fig-resids-online-offline-1.pdf}
+{\centering \includegraphics{Social-Isolation-in-China-jg-revised_files/figure-pdf/fig-resids-online-offline-1.pdf}
 
 }
 
 \caption{\label{fig-resids-online-offline}Online/Offline Model
 Residuals}
 
-\end{figure}%
+\end{figure}
 
 
 
