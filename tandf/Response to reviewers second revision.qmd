@@ -1,0 +1,29 @@
+---
+title: "Response to reviewers - second revision"
+format: pdf
+---
+
+## Reviewer 2
+
+*1. Timeliness of Data: The research is based on data collected in 2015, a time when the prevalence of mobile internet and social media platforms might differ significantly from the present landscape. The authors utilized a survey conducted from November 25 to December 2, 2015, as mentioned in the document: "We employed Qualtrics to collect the data...from November 25 to December 2, 2015." Given the rapid evolution of digital communication, the applicability of findings based on a decade-old dataset should be reconsidered.*
+
+
+
+*2. Mismatch Between Literature Review and Data Collection: The literature review incorporates studies from around 2020, such as the reference to "Valkenburg et al., 2022," yet the data used for analysis is from 2015. This discrepancy may affect the validity of conclusions drawn from contemporary theoretical perspectives when applied to outdated data.*
+
+We are happy to revise our literature review section in ways that the reviewer feels would strengthen the paper but we are a bit unsure of how to proceed given two previous comments by reviewers that we add to the literature review section. While we acknowledge that the previous recommendation and this recommendation are not precisely mutually exclusive, it does suggest that if we remove some references here we may be working against the recommendations of the previous reviewers. 
+
+Suggestions as to how to move forward would be welcome here.
+
+> Previous reviewer 1 comment: "It is suggested to examine the related theories to answer, why the phenomenon of social media use in Mainland China may be different from others."
+
+> Previous reviewer 2 comment: "Nothing in the literature review about social media addiction. I suggest to see: Social isolation, social support and their relationship with smartphone addiction; examples: The relationship between addiction to smartphone usage and depression among adults: A crosssectional study, Smartphone addiction among university students in the light of some variables, and Examining the effects of motives and gender differences on smartphone addiction."
+
+*3. Rationale for Variable Selection: The inclusion of variables like "Chinese Communist Party membership (CCP)" is noted, as stated: "For those we begin by fitting an additive model of our index of social isolationism as function of each of our primary independent variables...CCP Member." However, the introduction does not discuss the relevance of this variable, leaving unclear its contribution to the study.*
+
+A reasonable point. We have added some discussion of the reason this variable is included in the final paragraph of the Data, Measurement and Description section. 
+
+*4. Depth of Discussion: The discussion section lacks depth, particularly in expanding upon the implications of the results. For example, the document mentions: "our results cast some doubt on theories that suggest it is the negative content..." but does not elaborate on how these findings challenge existing theories.*
+
+Fair point. We have substantially increased discussion of the implications and linked it more explicitly back to the literature discussed in the theory section.
+
