@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.8)  17 AUG 2024 18:30
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.8)  27 AUG 2024 20:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Social-Isolation-in-China-second-revision.tex
-(./Social-Isolation-in-China-second-revision.tex
+**Social-Isolation-in-China-second-revision-jg-edits.tex
+(./Social-Isolation-in-China-second-revision-jg-edits.tex
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2023-08-29>
 (./interact.cls
@@ -684,30 +684,30 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 File: bkm-dvipdfm.def 2020-11-06 v1.29 bookmark driver for dvipdfm (HO)
 \BKM@id=\count361
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 217.
-No file Social-Isolation-in-China-second-revision.aux.
-\openout1 = `Social-Isolation-in-China-second-revision.aux'.
+Package hyperref Info: Option `colorlinks' set `true' on input line 216.
+No file Social-Isolation-in-China-second-revision-jg-edits.aux.
+\openout1 = `Social-Isolation-in-China-second-revision-jg-edits.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 220.
-LaTeX Font Info:    ... okay on input line 220.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 219.
+LaTeX Font Info:    ... okay on input line 219.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 219.
+LaTeX Font Info:    ... okay on input line 219.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 219.
+LaTeX Font Info:    ... okay on input line 219.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 219.
+LaTeX Font Info:    ... okay on input line 219.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 219.
+LaTeX Font Info:    ... okay on input line 219.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 219.
+LaTeX Font Info:    ... okay on input line 219.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 219.
+LaTeX Font Info:    ... okay on input line 219.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 219.
+LaTeX Font Info:    ... okay on input line 219.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 219.
+LaTeX Font Info:    ... okay on input line 219.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 219.
+LaTeX Font Info:    ... okay on input line 219.
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -753,20 +753,20 @@ LaTeX Info: Redefining \BPBI on input line 129.
 LaTeX Info: Redefining \BHBI on input line 130.
 )
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 220.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 219.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 220.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 219.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 220.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 219.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 220.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 219.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 220.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 219.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 220.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 219.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 220.
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 220.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 219.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 219.
 
 Package fontspec Info: latinmodern-math scale = 0.9999967815337278.
 
@@ -792,7 +792,7 @@ Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 11.0pt on input line 220.
+(Font)              scaled to size 11.0pt on input line 219.
 
 Package fontspec Info: latinmodern-math scale = 0.9999967815337278.
 
@@ -824,15 +824,15 @@ Package fontspec Info: Font family 'latinmodern-math.otf(1)' created for font
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 11.0pt on input line 220.
+(Font)              scaled to size 11.0pt on input line 219.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 220.
+(Font)              `operators' in the math version `normal' on input line 219.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 220.
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 219.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 220.
+(Font)              `operators' in the math version `bold' on input line 219.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 220.
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 219.
 
 Package fontspec Info: latinmodern-math scale = 0.9999967815337278.
 
@@ -911,13 +911,13 @@ Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
 (fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 220.
+(Font)              `symbols' in the math version `normal' on input line 219.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 220.
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 219.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 220.
+(Font)              `symbols' in the math version `bold' on input line 219.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 220.
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 219.
 
 Package fontspec Info: latinmodern-math scale = 0.9999967815337278.
 
@@ -978,19 +978,19 @@ Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
 (fontspec)             =6.6pt\relax \fontdimen 13\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 220.
+(Font)              `largesymbols' in the math version `normal' on input line 219.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 220.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 219.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 220.
+(Font)              `largesymbols' in the math version `bold' on input line 219.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 220.
-LaTeX Info: Redefining \microtypecontext on input line 220.
-Package microtype Info: Applying patch `item' on input line 220.
-Package microtype Info: Applying patch `toc' on input line 220.
-Package microtype Info: Applying patch `eqnum' on input line 220.
-Package microtype Info: Applying patch `footnote' on input line 220.
-Package microtype Info: Applying patch `verbatim' on input line 220.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 219.
+LaTeX Info: Redefining \microtypecontext on input line 219.
+Package microtype Info: Applying patch `item' on input line 219.
+Package microtype Info: Applying patch `toc' on input line 219.
+Package microtype Info: Applying patch `eqnum' on input line 219.
+Package microtype Info: Applying patch `footnote' on input line 219.
+Package microtype Info: Applying patch `verbatim' on input line 219.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -999,147 +999,151 @@ Package microtype Info: No adjustment of kerning.
 (/Users/awm31/Library/TinyTeX/texmf-dist/tex/latex/microtype/mt-LatinModernRoman.cfg
 File: mt-LatinModernRoman.cfg 2021/02/21 v1.1 microtype config. file: Latin Modern Roman (RS)
 )
-Package hyperref Info: Link coloring ON on input line 220.
+Package hyperref Info: Link coloring ON on input line 219.
 
 Package hyperref Warning: Rerun to get /PageLabels entry.
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.7pt on input line 235.
+(Font)              scaled to size 7.7pt on input line 230.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.5pt on input line 235.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 235.
+(Font)              scaled to size 5.5pt on input line 230.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 230.
 (/Users/awm31/Library/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 11.001pt on input line 235.
+(Font)              scaled to size 11.001pt on input line 230.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.7007pt on input line 235.
+(Font)              scaled to size 7.7007pt on input line 230.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.5005pt on input line 235.
+(Font)              scaled to size 5.5005pt on input line 230.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.99883pt on input line 235.
+(Font)              scaled to size 10.99883pt on input line 230.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.69917pt on input line 235.
+(Font)              scaled to size 7.69917pt on input line 230.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.4994pt on input line 235.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 235.
+(Font)              scaled to size 5.4994pt on input line 230.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 230.
 (/Users/awm31/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/Users/awm31/Library/TinyTeX/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 235.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 230.
 (/Users/awm31/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/Users/awm31/Library/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 235.
+(Font)              scaled to size 10.0pt on input line 230.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 235.
+(Font)              scaled to size 7.0pt on input line 230.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 235.
+(Font)              scaled to size 5.0pt on input line 230.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 235.
+(Font)              scaled to size 10.00092pt on input line 230.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 235.
+(Font)              scaled to size 7.00064pt on input line 230.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00046pt on input line 235.
+(Font)              scaled to size 5.00046pt on input line 230.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 235.
+(Font)              scaled to size 9.99893pt on input line 230.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 235.
+(Font)              scaled to size 6.99925pt on input line 230.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 235.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 235.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 235.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00073pt on input line 235.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 235.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 235.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 235.
+(Font)              scaled to size 4.99947pt on input line 230.
 [1
 
 
 
-] [2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 453--453
+]
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 282.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 282.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 8.00073pt on input line 282.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 6.00055pt on input line 282.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.99915pt on input line 282.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.99936pt on input line 282.
+[2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 469--469
 [][][]\TU/lmr/m/n/8 See https://data.worldbank.org/country/china (go to the Country Profile), and
  []
 
+
+Overfull \vbox (1.40501pt too high) has occurred while \output is active []
+
 [4]
 
-LaTeX Warning: Reference `fig-social-iso-dist' on page 5 undefined on input line 470.
+LaTeX Warning: Reference `fig-social-iso-dist' on page 5 undefined on input line 486.
 
-File: Social-Isolation-in-China-second-revision_files/figure-pdf/fig-social-iso-dist-1.pdf Graphic file (type pdf)
-<use Social-Isolation-in-China-second-revision_files/figure-pdf/fig-social-iso-dist-1.pdf>
+File: Social-Isolation-in-China-second-revision-jg-edits_files/figure-pdf/fig-social-iso-dist-1.pdf Graphic file (type pdf)
+<use Social-Isolation-in-China-second-revision-jg-edits_files/figure-pdf/fig-social-iso-dist-1.pdf>
+
+LaTeX Warning: Reference `fig-var-dist' on page 5 undefined on input line 527.
+
 [5]
+File: Social-Isolation-in-China-second-revision-jg-edits_files/figure-pdf/fig-var-dist-1.pdf Graphic file (type pdf)
+<use Social-Isolation-in-China-second-revision-jg-edits_files/figure-pdf/fig-var-dist-1.pdf>
 
-LaTeX Warning: Reference `fig-var-dist' on page 6 undefined on input line 511.
-
-File: Social-Isolation-in-China-second-revision_files/figure-pdf/fig-var-dist-1.pdf Graphic file (type pdf)
-<use Social-Isolation-in-China-second-revision_files/figure-pdf/fig-var-dist-1.pdf>
-
-LaTeX Warning: Reference `fig-sm-use-dist' on page 6 undefined on input line 564.
+LaTeX Warning: Reference `fig-sm-use-dist' on page 6 undefined on input line 580.
 
 [6]
-File: Social-Isolation-in-China-second-revision_files/figure-pdf/fig-sm-use-dist-1.pdf Graphic file (type pdf)
-<use Social-Isolation-in-China-second-revision_files/figure-pdf/fig-sm-use-dist-1.pdf>
+File: Social-Isolation-in-China-second-revision-jg-edits_files/figure-pdf/fig-sm-use-dist-1.pdf Graphic file (type pdf)
+<use Social-Isolation-in-China-second-revision-jg-edits_files/figure-pdf/fig-sm-use-dist-1.pdf>
 
-LaTeX Warning: Reference `fig-urban-dist' on page 7 undefined on input line 587.
+LaTeX Warning: Reference `fig-urban-dist' on page 7 undefined on input line 603.
 
-File: Social-Isolation-in-China-second-revision_files/figure-pdf/fig-urban-dist-1.pdf Graphic file (type pdf)
-<use Social-Isolation-in-China-second-revision_files/figure-pdf/fig-urban-dist-1.pdf>
+File: Social-Isolation-in-China-second-revision-jg-edits_files/figure-pdf/fig-urban-dist-1.pdf Graphic file (type pdf)
+<use Social-Isolation-in-China-second-revision-jg-edits_files/figure-pdf/fig-urban-dist-1.pdf>
 [7] [8]
-Overfull \hbox (17.79503pt too wide) in paragraph at lines 659--683
+Overfull \hbox (17.79503pt too wide) in paragraph at lines 675--699
  [] 
  []
 
 
-LaTeX Warning: Reference `tbl-profile-models' on page 9 undefined on input line 689.
+LaTeX Warning: Reference `tbl-profile-models' on page 9 undefined on input line 705.
 
 
-LaTeX Warning: Reference `tbl-social-isolation-models' on page 9 undefined on input line 757.
+LaTeX Warning: Reference `tbl-social-isolation-models' on page 9 undefined on input line 773.
 
-[9] [10]
 
-LaTeX Warning: Reference `fig-social-isolation-interactions' on page 11 undefined on input line 777.
+LaTeX Warning: Reference `fig-social-isolation-interactions' on page 9 undefined on input line 793.
 
-File: Social-Isolation-in-China-second-revision_files/figure-pdf/fig-social-isolation-interactions-1.pdf Graphic file (type pdf)
-<use Social-Isolation-in-China-second-revision_files/figure-pdf/fig-social-isolation-interactions-1.pdf>
-[11] [12] [13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 1046--1049
+[9]
+File: Social-Isolation-in-China-second-revision-jg-edits_files/figure-pdf/fig-social-isolation-interactions-1.pdf Graphic file (type pdf)
+<use Social-Isolation-in-China-second-revision-jg-edits_files/figure-pdf/fig-social-isolation-interactions-1.pdf>
+[10] [11] [12] [13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 1062--1065
 \TU/lmr/m/it/11 Morning Post\TU/lmr/m/n/11 . [][]$[][][][][] [][][] [][][] [] [][][][][] [] [][][][] [] [][][][][][][][][] [] [][][][][][][][][][][][][] [] [][][][][][][] []
  []
 
 
-Underfull \hbox (badness 2547) in paragraph at lines 1063--1066
+Underfull \hbox (badness 2547) in paragraph at lines 1079--1082
 []\TU/lmr/m/n/11 Wang, J. (2020). \TU/lmr/m/it/11 Regulation of digital media platforms: The case of china\TU/lmr/m/n/11 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1063--1066
+Underfull \hbox (badness 10000) in paragraph at lines 1079--1082
 [][]$[][][][][] [][][] [][][] [] [][][][][] [] [][][][] [] [][][][][][][] [] [][][][][][][][][][][] [] [][][][][][][] [] [][][][][][][][][][][] [] [][][][][][][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1068--1071
+Underfull \hbox (badness 10000) in paragraph at lines 1084--1087
 [][][][] [] [][][][][] [] [][][][] [] [][][][][] [] [][][][][][][][] [] [][][][][][] [] [][][] [] [][][][][][] [] [][][] [] [][][][][] [] [][][][][][] [] [][][][][][][] [] [][][][][][] []
  []
 
 [15] [16] [17]
-File: Social-Isolation-in-China-second-revision_files/figure-pdf/fig-resids-human-1.pdf Graphic file (type pdf)
-<use Social-Isolation-in-China-second-revision_files/figure-pdf/fig-resids-human-1.pdf>
-File: Social-Isolation-in-China-second-revision_files/figure-pdf/fig-resids-online-offline-1.pdf Graphic file (type pdf)
-<use Social-Isolation-in-China-second-revision_files/figure-pdf/fig-resids-online-offline-1.pdf>
-[18] [19] (./Social-Isolation-in-China-second-revision.aux
+File: Social-Isolation-in-China-second-revision-jg-edits_files/figure-pdf/fig-resids-human-1.pdf Graphic file (type pdf)
+<use Social-Isolation-in-China-second-revision-jg-edits_files/figure-pdf/fig-resids-human-1.pdf>
+File: Social-Isolation-in-China-second-revision-jg-edits_files/figure-pdf/fig-resids-online-offline-1.pdf Graphic file (type pdf)
+<use Social-Isolation-in-China-second-revision-jg-edits_files/figure-pdf/fig-resids-online-offline-1.pdf>
+[18] [19] (./Social-Isolation-in-China-second-revision-jg-edits.aux
 
 Package natbib Warning: Citation(s) may have changed.
 (natbib)                Rerun to get citations correct.
@@ -1156,11 +1160,11 @@ l.81 ...mand\NAT@force@numbers{}\NAT@force@numbers
                                                    
 Here is how much of TeX's memory you used:
  26686 strings out of 477564
- 523896 string characters out of 5816806
+ 524490 string characters out of 5816806
  1945422 words of memory out of 5000000
  47505 multiletter control sequences out of 15000+600000
  566589 words of font info for 105 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 90i,12n,120p,1038b,1004s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,12n,120p,1047b,1004s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Social-Isolation-in-China-second-revision.pdf (19 pages).
+Output written on Social-Isolation-in-China-second-revision-jg-edits.pdf (19 pages).
