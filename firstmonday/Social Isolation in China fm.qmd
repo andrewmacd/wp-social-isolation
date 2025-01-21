@@ -1,0 +1,411 @@
+---
+title: "Lonely and online: an investigation of social media use and social isolation in China"
+date: '`r format(Sys.time(), "%B %d, %Y")`'
+abstract: "Research on the link between social media and well being has lead to ambiguous findings - some research has found a positive, negative, and mixed relationship between the two. We employ the case of China, in which social media is controlled in important ways, as a useful alternative case to gain leverage on these ambiguities. Using data from a nationwide survey of Chinese citizens (n=2292), we principally find that individual, heterogeneous effects are an important driver of the relationship between levels of social media use and reported well-being. Additionally, our results lend support to a FOMO (fear of missing out) mechanism as an important driver of the relationship while not finding support for the mechanism of exposure to negative content on social media as a predictor of well-being. Finally, our findings suggest that institutional context may not play an important role in the social media - social isolation relationship."
+keywords: [Social Isolation, Social Media, Digital Communication, China]
+format: docx
+execute: 
+  echo: false
+  warning: false
+bibliography: references.bib
+csl: first-monday.csl
+shift-heading-level-by: -1
+author:
+  - name: Jason Gainous
+    affiliations:
+      - name: University of Sharjah
+        department: Department of Mass Communication
+        city: Sharjah
+        country: United Arab Emirates
+    orcid: 0000-0002-3104-2313
+    email: jgainous@sharjah.ac.ae
+  - name: Andrew W. MacDonald
+    affiliations:
+      - name: Duke Kunshan University
+        department: Division of Social Sciences
+        city: Kunshan
+        country: China
+    orcid: 0000-0002-4695-1560
+    email: andrew.macdonald@dukekunshan.edu.cn
+    attributes:
+      corresponding: true
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+library(grid)
+library(modelsummary)
+library(scales)
+library(papeR)
+library(gridExtra)
+library(knitr)
+library(kableExtra)
+library(ggthemes)
+library(MASS)
+library(sjPlot)
+library(ggResidpanel)
+library(flextable)
+
+theme_set(theme_tufte())
+
+load("china_isolation_data.RData")
+```
+
+{{< pagebreak >}}
+
+## Introduction
+
+Research is quite mixed when it comes to identifying the relationship between social media use and feelings of isolationism. Early research suggested that the internet would build social capital, or an interconnectedness between people, and that social media platforms were the ultimate way to bring people together [@ellison2007]. Since then, research on the subject has been decidedly more mixed [@duradoni2020; @jiménez2022; @valkenburg2022]. On one hand, some authors have found social media may encourage social isolation, and ultimately, social media users may feel more disconnected from others than those who do not use social media. On the other hand, others have found that there is only a minimal relationship between these two variables. More recent scholarship has suggested that social media use may produce heterogeneous effects on individuals' sense of well-being [@ivie2020; @ostic2021].
+
+This study uses the little-studied Chinese social media environment to answer two research questions that remain unresolved in the literature: 1) through which channels or mechanisms do possible heterogeneous effects operate through and 2) how much does internet context change the relationship between social isolation and social media use. The reason that we believe the case of China can be helpful in answering these question is that Chinese online environment has certain features that should both moderate and exacerbate key causal pathways previously identified in the literature. To resolve these debates, we employ a large survey (n=2292) of Chinese internet users and test a variety of regression specifications.[^1] The main result is that social media use is generally negatively related to social isolation, though the nature of this relationship changes depending on the urbanicity of the respondent - being in a rural area amplifies this relationship. These results are consistent with a mechanism that links the two via the harmfulness of being exposed to constant online comparisons (so-called FOMO or fear of missing out). However, the contextual differences of the Chinese internet compared to the Western internet do not appear to significantly alter the relationship.
+
+[^1]: All data and analysis files for this research are available at the author's website.
+
+## Literature Review and Theory
+
+Initially, scholars imagined that social media would create more opportunities for users to create unique and fulfilling social relationships [@ellison2007; @steinfield2008; @subrahmanyam2008]. The early theorizing about the possible benefits of social media hypothesized three important mechanisms by which social media could decrease loneliness. 1) creating more opportunities for online to offline meetups and 2) helping to alleviate feelings of isolation for those who have difficulty making in-person social connections via joining an online communities, and 3) facilitating keeping in touch with family and friends.
+
+More recent studies on the subject have found significantly more mixed and often negative evidence regarding the impact of social media on feelings of isolation. Primack et al. found a negative relationship between social media use and social isolation in youth in a representative sample [@primack2017]. A meta-review of the literature on adolescent social media usage notes that while the effect size is often small the relationship in most studies on social media's linkage to ill-being is negative [@valkenburg2022] while emphasizing the importance of heterogeneous effects. There are relatively fewer studies that consider all ages. However, those that have been conducted also emphasize that the relationship between social media use and well-being has possible negative effects but the effects seem to vary by personality type [@appel2020]. More recent research has reinforced the finding that the effect of social media on measures like social isolation may be highly heterogeneous across individuals; for some individuals, the effect may be quite negative for some while for others social media usage may have a modestly positive impact on well-being [@beyens2020; @ostic2021]. For example, for some users moderate social media use may have no significant impact but for those who suffer from social media addiction, the effect can be highly negative [@alhassan2018; @aljomaa2016] (though see [@al-kandari2021; @chen2017] for more complex findings).
+
+While most of the studies agree that the causal direction flows from social media use to feelings of isolation (though see [@nowland2018; @kim2017]), there is disagreement among authors about the specific mechanisms and causal pathways through which this relationship exists. For those who find a negative relationship between social media and well-being, one set of mechanisms suggests that the social media itself that is the problem. Cyberbullying, or more generally, repeated and aggressive online attacks against users has been systematically linked to feelings of social isolation [@ademiluyi2022]. Another proposed mechanism is upward comparisons of others - users observe content of friends or influencers who post luxurious or exotic experiences which cause users to encounter feelings of unhappiness or FOMO about their own life situation [@alabri2022; @büttner2022]. A third set of mechanisms primarily concern themselves with the physical changes that social media causes. Social media use has been shown to displace face to face activity, which leads to greater social isolation [@larson2018]. The current research suggests that which of these mechanisms is dominant depends on the age/demographic group in question and the societal context [@twenge2019].
+
+Most of the existing research on the subject focuses on Western highly developed societies, and this focus limits variation on key independent variables given the similar social and institutional context in which users are embedded. To address this problem, this study aims to understand how these complex dynamics interact in the non-Western setting of China. We believe the setting of China gives additional leverage to investigate issues of heterogeneity and the importance of context for several reasons. Firstly, the highly controlled nature of China's internet space prevents user exposure to some of the more threatening online content (such as cyberbullying) that is hypothesized to be a factor in creating a negative relationship between social media and feelings of social isolation [@wang2020]. If this mechanism were the dominant reason for previous findings of a negative relationship between the two, one would expect the relationship to be more positive in China. Relatedly, China has a more commercial and robust influencer culture that often dominates user's social media consumption [@tam2019; @wei2023]. If the main pathway creating a negative relationship is via user's comparisons of their lives with others (FOMO), we expect the relationship between social media use and feelings of social isolation to be greater in China.
+
+Finally, China has undergone a period of very rapid urbanization in the last 40 years, a development that has brought about enormous changes to traditional social structures [@xu2014]. This rapid urbanization can help test two important unresolved questions in the existing literature that are difficult to resolve given that urbanization in Western countries is a process that largely finished by the advent of social media. The first is whether social media can provide a means to decrease social isolation among those who actively seek it out to make friends. China's rapid urbanization and attendant human migration has created a large population of people that lack strong social bonds and may use social media as a method to create new social bonds (as the earlier theorists of social media hypothesized users may employ the technology). The existing literature on the West finds that urbanicity is an important factor in levels and mechanisms for social isolation; many studies of Western societies have found that rural residents, while having stronger familial bonds, also can more easily experience social isolation without those bonds [@kaye2017; @koning2017; @henning-smith2018]. Social media use in China could therefore either help mitigate the feelings of isolation brought on by rapid urbanization by connecting family members who have left the countryside for urban work (based on the earlier, more positive views of social media's potential) or amplify further the feelings of isolation due to several of the proposed negative relationship mechanisms.
+
+The case of China cannot resolve every debate in the literature or test all possible mechanisms but we do believe it can provide insight into a few of the more prominent proposed processes. Thus, given the existing literature and the context of China, we develop a series of testable hypotheses that shed light on our research question.
+
+-   **H**$1_a$: social media use should have a positive connection to social isolation due to strengthened government control over online content
+
+-   **H**$1_b$: social media use should have a negative connection to social isolation due to the dominance of influencer culture in China, moderated by age.
+
+-   **H**$2$: those who are able to use social media to make new friends will have lower social isolation scores than those who do not
+
+-   **H**$3$: the urban/rural divide will produce differential impacts in the above hypotheses on the relationship between social media use and social isolation
+
+## Data, Measurement, and Descriptives
+
+The data used in this study are original. We designed a survey instrument in English, and translated it into Chinese, to measure a range of concepts including social isolationism and various dimensions of social media and digital information consumption. We employed Qualtrics to collect the data. They randomly selected 2292 respondents from their existing panel[^2] from November 25 to December 2, 2015. This sample size on provides for a roughly $\pm2$ margin of error.[^3] While our sample is selected randomly from Qualtrics' online user panel, it isn't representative of China's entire population due to its internet-based recruitment methods. The sample, however, aligns well with Chinese internet users, crucial for our internet effects research. Compared to national data, our sample skews younger and more educated but is similar in income and gender.[^4] These demographics reflect the global digital divide and are in line with expectations for internet users in developing regions. Our findings are particularly relevant for understanding digital media's impact among active internet users in China.
+
+[^2]: Qualtrics recruits a large pool of respondents for various survey projects through online advertising. Recruits who update their profiles at least once every 6 months are randomly invited to participate. These recruits are awarded online points that can be exchanged for cash or various other country-specific gifts. The number of points is based on the length of the survey, and since our survey had over fifty questions, respondents received a relatively high number of points.
+
+[^3]: We were able to first collect a small sample ($n=286$) to check the reliability and adjust the instrument after before proceeding with the final data collection. We made three adjustments, none of which are related to the measures used in the current study.
+
+[^4]: See https://data.worldbank.org/country/china (go to the Country Profile), and https://www.cnnic.com.cn/AU/Introduction/Introduction/201208/t20120815_33295.htm.
+
+Our dependent variable, *social isolationism*, is a three-item additive index. Respondents were given the following introduction: The next question is about how you feel about different aspects of your life. Could you tell me for each one if you feel that way always, almost always, some of the time, rarely or never? Then they were asked: A) How often do you feel that you lack companionship, B) How often do you feel isolated from others?, and C) How often do you feel left out? Response options were recoded so that higher responses equated to feeling more socially isolated, they were all three added together, and then rescaled to range from 0 through 1 maintaining the original intervals ($\alpha = 0.86$). The distribution of that index is presented in @fig-social-iso-dist. The distribution is relatively normal centered around the midpoint with a slight skew to the right. Most respondents appear to be on the low end, indicating the the majority of those in our sample do not feel particularly isolated. Conversely, the right skew in the distribution does suggest that a sizable chunk of folks feel quite socially isolated. Altogether, the spread out distribution indicates quite a bit of variance ($\mu = 0.41$, $sd = 0.20$).
+
+```{r}
+#| label: fig-social-iso-dist
+#| fig-cap: "Distribution of Social Isolationism Index"
+
+figure1 = ggplot(china_isolation_data, aes(x=isolation)) + 
+  geom_histogram(aes(y=..density..), colour="black", fill="seashell")+
+  geom_density(alpha=.2, fill="#FF6666") +
+  xlab("Social Isolationism") +
+  ylab("Density") +
+  theme(panel.border = element_rect(color = "black",fill = NA))
+figure1
+```
+
+We have several primary independent variables including human interaction, online to offline relationships, general social media use, and urbanicity. We measured human interaction with a single item: "Has the internet and phone applications increased your contact with the following groups of people (check yes to all that apply)?" The response options were: 1) Family that lives nearby, 2) Family that lives far away, 3) Friends that live nearby, 4) Friends that live far away, 5) People you met on the internet that live nearby, and 6) People you met on the internet that live far away. We simply counted the number of selected responses so the item ranged from 0 to 6, and then for the models that come later, we rescaled it to range from 0 through 1 maintaining the original intervals. Online to offline relationships was also measured with a single item: Have you met someone offline that you initially met online? Response options were: 1) Yes, many times, 2) Yes, several times, 3) Yes, once, and 4) No, never. We inverted this scale so that higher values represented more offline relationships, and again, rescaled it to range from 0 through 1 for the models that follow.
+
+The distributions of these ordinal independent variables are reflected in @fig-var-dist. Very few people claimed to never have increased their contact/connections with others through the internet. The modal number of increased connections respondents claimed to have made through the internet was 2, followed closely by 1, but a sizable proportion of the sample, about 48% claimed to have increased their number of personal connections by 3 or more through the internet. Perhaps not surprisingly, the modal response when asked whether one had met someone online and that relationship moved offline was "No, never". On the other hand, we were surprised that about 37% of those sampled claimed to have moved relationships offline several times, over 10% said they had done so many times, and about 13% did so once. Taken altogether, a large proportion of our respondents seem to using the internet to facilitate social relations.
+
+```{r}
+#| label: fig-var-dist
+#| fig-cap: "Primary Independent Variables Distributions"
+
+figure2a = ggplot(data = subset(china_isolation_data, !is.na(human_interaction_cat)), aes(x = human_interaction_cat)) +
+  geom_bar(aes(y = (..count..)/sum(..count..))) +
+  scale_y_continuous(labels=scales::percent) +
+  labs(x = "Human Interaction", y = "Percent") +
+  coord_flip() +
+  theme(panel.border = element_rect(color = "black",fill = NA, size = 1))
+
+figure2b = ggplot(data = subset(china_isolation_data, !is.na(online_offline_cat)), aes(x = online_offline_cat)) +
+  geom_bar(aes(y = (..count..)/sum(..count..))) +
+  scale_y_continuous(labels=scales::percent) +
+  labs(x = "Online to Offline Relationships", y = "Percent") +
+  coord_flip() +
+  theme(panel.border = element_rect(color = "black",fill = NA, size = 1))
+
+grid.arrange(figure2a, figure2b)
+```
+
+We measured general social media use with an index based on the following three items: 1) About how many hours a day would you estimate you spend using only social media? Social media means applications like Weibo, QQ, Renren, Kaixin001, Douban, WeChat or other sites and services that allow users to interact with each other. (0-1, 1-2, 2-3, 3-4, 4-5, 5-6, 6-7, 7-8, 8-9, or More than 9), 2) Do you check email, read websites, and use social media (social media means applications like Weibo, QQ, Renren, Kaixin001, Douban, WeChat or other sites and services that allow users to interact with each other) more than you did five years ago? (Yes, No), and 3) How often do you read news stories about political events that have been posted on social media (social media means applications like Weibo, QQ, Renren, Kaixin001, Douban, WeChat or other sites and services that allow users to interact with each other)? (More than once a day, Everyday, Three-to-five days per week, One-to-two days per week, Less often, Never). Each was recoded so that higher values represented more social media use, rescaled to range from 0 through 1, added together, and then again, rescaled to range from 0 through 1 maintaining all original intervals.The Chronbach's alpha was relatively low for these three items ($\alpha = 0.31$), but we proceeded with the construction of this index because, first, the face validity is high. Simply, those who claim to use social media generally more often, claim to read political news more often, and claim to use it more than they did in the past, are certainly likely to be more frequent social media users than those who do not do all these things.Second, we confirmed that these three items were all positively correlated with each other (p \< 0.0001 for all pairwise relationships). The distribution of this index is presented in @fig-sm-use-dist. The distribution is relatively normal and tightly centered around the mean 0.63 with a standard deviation of 0.17, but there is a left skew suggesting that a portion of the population is not that social media active, but clearly the bulk of the population are.
+
+```{r}
+#| label: fig-sm-use-dist
+#| fig-cap: General Social Media Use Distribution
+
+figure3 = ggplot(data = subset(china_isolation_data, !is.na(gen_social_med)), aes(x=gen_social_med)) + 
+  geom_histogram(aes(y=..density..), colour="black", fill="seashell") +
+  geom_density(alpha=.2, fill="#FF6666") +   
+  xlab("Social Media Use") +
+  ylab("Density")  +
+  theme(panel.border = element_rect(color = "black",fill = NA))
+figure3
+```
+
+Our final primary independent variable, urbanicity, was measured using a single item: Which of these best describes the place in which you live? (Countryside/Village, Small City, Mid-Sized City, Suburban Area of a Big City, Big City). For the purpose of the models, we rescaled this item to range from 0 through 1 maintaining the original intervals. The distribution is reflected in @fig-urban-dist. Given the rural to urban Chinese migration since the founding of the People's Republic [@xia1995], it is not surprising to see that nearly 45% of those in our sample live in cities, 7% in suburbs, and about 27% in mid-sized cities. About 16% say they live in small cities and only about 5% say they live in villages.
+
+```{r}
+#| label: fig-urban-dist
+#| fig-cap: "Urbanicity Distribution"
+
+figure4 = ggplot(data = subset(china_isolation_data, !is.na(urbanicity_cat)), aes(x = urbanicity_cat)) +
+  geom_bar(aes(y = (..count..)/sum(..count..))) +
+  scale_y_continuous(labels=scales::percent) +
+  labs(x = "Urbanicity", y = "Percent") +
+  coord_flip() +
+  theme(panel.border = element_rect(color = "black",fill = NA, size = 1))
+
+figure4
+```
+
+Finally, while not a key variable of interest, we also include a dummy variable for Chinese Communist Party (CCP) membership. Previous research on party members suggest that party members may volunteer for social causes at a higher rate than non party members [@dickson2014]. This volunteering behavior may contribute to a lower level of feelings of social isolation and therefore it is of interest to estimate any possible effects of party member status. Additionally, a long line of research has noted that party members earn more than non-party members [@dickson2000; @yan2019]. If party membership affects social isolation and also affects earnings, controlling for CCP membership is important to prevent a biased estimate of the relationship between earnings and social isolation.
+
+Our modeling strategy that follows is straightforward. We begin by modeling each of our internet communication independent variables as function of socio-economic status (SES), gender, CCP membership status, and age to create an individual profile of each type of digital user (see the Online Appendix for the operationalization of these variables). This provides some context for the models that follow which are intended to test our primary hypotheses, that is that internet communication can deter social isolation and that this is particularly true for those who do not have the convenience of the high social interaction opportunity provided by urban living. For those we begin by fitting an additive model of our index of social isolationism as function of each of our primary independent variables while also controlling for the same variables included in our profile models. Finally, we refit three models with the same specification but introduce an interactive term between each of our internet communication indicators, respectively, with our measure of urbanicity. This allows us to test whether the observed additive effects are stronger for those living outside cities.
+
+## Results
+
+Given that the first two dependent variables (human interaction, online to offline to offline relationships) in our profile models are distributed ordinally, we initially estimate linear models of those outcomes and examine the residual behavior to determine if a linear model fits the data well or if an ordered outcome model is a better fit. The results were clear, a linear model is not a good fit for either outcome (see the figures in the Online Appendix), so we fit the models using ordered logit. Because our measure of general social media is based on an additive index, we treat it as continuous, and accordingly fit a linear model.
+
+```{r}
+#| label: tbl-profile-models
+#| tbl-cap: "Modeling Profiles of Digital Communication"
+
+mod1_ord = polr(human_interaction_cat ~ ses + female + CCP_member + age, data = china_isolation_data)
+mod2_ord = polr(online_offline_cat ~ ses + female + CCP_member + age, data = china_isolation_data)
+mod3 = lm(gen_social_med ~ ses + female + CCP_member + age, data = china_isolation_data)
+
+models <- list(
+  "Human Interaction" = mod1_ord,
+  "Online/Offline Interaction" = mod2_ord,
+  "General Social Media" = mod3
+)
+
+gof.included <- list(
+  list("raw" = "nobs", "clean" = "N", "fmt" = "%i"),
+  list("raw" = "r2.nagelkerke", "clean" = "Pseudo R2", "fmt" = "%.2f"),
+  list("raw" = "r.squared", "clean" = "R2", "fmt" = "%.2f"))
+
+n <- "Human Interaction and Offline/Online Relationships estimates are derived from ordered logit and General Social Media from ordinary least squares."
+
+modelsummary(models, 
+             coef_omit = ".*Connect|.*Intercept|.*No|.*Yes",
+             coef_rename = c("ses" = "SES",
+                             "female" = "Female",
+                             "CCP_member" = "CCP Member",
+                             "age" = "Age"),
+             fmt=2,
+             stars=c("*" = 0.05),
+             output="flextable",
+             gof_map = gof.included)
+ 
+#gof_omit = "R2 Adj|AIC|BIC|Log.Lik.|RMSE" 
+```
+
+The results of our profile models are presented in @tbl-profile-models. When it comes to SES, the relationship across all three of our internet communication is consistent. As SES goes up so does digital human interaction, the move from online to offline relationships, and general social media use. That gender is only statistically significant in the model of the move from online to offline relationships where women are less likely to do so. Interestingly, being a CCP member has inverse relationships with human interaction and the move from online to offline, where members are less likely to increase digital human interaction but are more likely to move online relationships offline. Finally, the older respondents were the more likely they were to increase human interaction, and the less likely they were to move relationships offline and use social media. These profile results provide background context for the models that follow. The internet communication indicators are our primary independent variables, so these profile models give us a sense for whom they matter the most when it comes to deterring social isolation.
+
+```{r}
+#| label: tbl-social-isolation-models
+#| tbl-cap: "Modeling Social Isolation"
+
+mod4 = lm(isolation ~ human_interaction + online_offline + gen_social_med + urbanicity + ses + female + CCP_member + age, data = china_isolation_data)
+
+mod5 = lm(isolation ~ human_interaction*urbanicity + online_offline + gen_social_med + ses + female + CCP_member + age, data = china_isolation_data)
+
+mod6 = lm(isolation ~ online_offline*urbanicity + human_interaction + gen_social_med + ses + female + CCP_member + age, data = china_isolation_data)
+
+mod7 = lm(isolation ~ gen_social_med*urbanicity + human_interaction + online_offline + ses + female + CCP_member + age, data = china_isolation_data)
+
+n <- "Estimates are derived using ordinary least squares"
+
+mods <- list(mod4, mod5, mod6, mod7)
+
+modelsummary(mods, 
+             coef_omit = ".*Connect|.*Intercept|.*No|.*Yes",
+             coef_rename = c("ses" = "SES",
+                             "female" = "Female",
+                             "CCP_member" = "CCP Member",
+                             "age" = "Age",
+                             "urbanicity" = "Urbanicity",
+                             "online_offline" = "Online-Offline",
+                             "human_interaction" = "Human Interaction",
+                             "gen_social_med" = "Social Media",
+                             "human_interaction:urbanicity" = 
+                               "Human Interaction*Urbanicity",
+                             "online_offline:urbanicity" =
+                               "Online-Offline*Urbanicity",
+                             "gen_social_med:urbanicity" = 
+                               "Social Media*Urbanicity"),
+             fmt=2,
+             stars=c("*" = 0.05),
+             output="flextable",
+             gof_map = gof.included)
+```
+
+The results of our models of social isolation are presented in @tbl-social-isolation-models. The additive estimates in model (1) provide mixed results regarding whether internet communication is a positive force in deterring social isolation. Not surprisingly, there is a negative relationship between the number of digital connections (human interaction) folks make and feelings of social isolation. On the other hand, though, both moving online relationships offline and general social media use are positively related to feelings of social isolation. The latter is consistent with much of the literature outlined above, but the former is not. The results also indicate that those living in more urban environments tend to feel less socially isolated.
+
+Models (2) - (4) in Table 2 include each of the interactions between our three internet communication measures and urbanicity. The consistent result across the interactions is that the relationships are dulled for those living in more rural areas. The interaction between digital humna interaction and urbanicity is statistically significant ($p < 0.01$), as is that between the move from online to offline relationships and urbanicity ($p < 0.001$), and that between general social media use and urbanicity only slightly misses the arbitrary $0.05$ threshold ($p = 0.07$). The interactions are most easily interpreted graphically (see @fig-social-isolation-interactions).
+
+```{r}
+#| label: fig-social-isolation-interactions
+#| fig-cap: "Modeling Social Isolation: Interaction Results"
+#| fig-width: 8
+
+a <- plot_model(mod5, type = "pred", title = "", terms = c("human_interaction", "urbanicity")
+               , legend.title = "Urbanicity") +
+  scale_color_discrete(labels = c("Village", "Small City", "Mid-sized City", "Suburb", "Big City")) +
+  ylab("") +
+  xlab("Digital Human Interaction") +
+  theme(panel.border = element_rect(color = "black",fill = NA, size = 1))
+
+b <- plot_model(mod6, type = "pred", title = "", terms = c("online_offline", "urbanicity")
+               , legend.title = "Urbanicity") +
+  scale_color_discrete(labels = c("Village", "Small City", "Mid-sized City", "Suburb", "Big City")) +
+  ylab("") +
+  xlab("Online to Offline Relationships") +
+  theme(panel.border = element_rect(color = "black",fill = NA, size = 1))
+
+c <- plot_model(mod7, type = "pred", title = "", terms = c("gen_social_med", "urbanicity")
+               , legend.title = "Urbanicity") +
+  scale_color_discrete(labels = c("Village", "Small City", "Mid-sized City", "Suburb", "Big City")) +
+  ylab("") +
+  xlab("Social Media Use") +
+  theme(panel.border = element_rect(color = "black",fill = NA, size = 1))
+
+grobs <- list(a, b, c)
+
+grid.arrange(grobs=grobs, ncol=2, left="Feelings of social isolation")
+```
+
+The model (2) results are graphed in the upper left hand figure. Here it is clear that the negative relationship between digital human interaction and feelings of social isolation is considerably stronger for those in cities. For that matter, notice that the relationship for those in villages is basically flat; the 95 percent confidence interval around the slight negative slope indicates that the relationship could be flat.
+
+The results from the interaction between online to offline relationships and urbanicity are displayed in the graph in the upper right hand corner of Figure 5. Again, here, the main effects run in the opposite direction than those of digital human interaction. Those who are more likely to move relationships from online to offline tend to feel more isolated, and the interactive results presented here suggest that this relations is stronger for those living in less urban spaces. Likewise, the same is the case for those using social media more frequently. In fact, the relationship here for those living in the largest cities is completely non-existent.
+
+In terms of our original hypotheses, we find support for the idea that China's social media environment is not particularly unique with respect to generating feelings of social isolation (**H1b**). Whether or not this is due to the influencer culture or other factors, we cannot say with our data, however age is a consistently negative predictor of social isolation even when controlling for amount of social media use. This result is at least suggestive of the negative online influencer culture. We also find, as has been found in other studies, that users who use the internet to create new connections are less likely to feel isolated (**H2**). However, this does not seem to extend to those that use the internet to facilitate offline meetups. Finally, we find that the impact of the internet and social media vary significantly according to the level of urbanicity (**H3**) - this matches with previous findings that suggest that there is significant heterogeneity in the impact of social media on social isolation.
+
+## Conclusion
+
+Cyberoptimists heralded the internet as means by which people could connect, build social capital, and some suggested this could deter social isolationism. On the other hand, more recent research and popular media coverage of the subject has presented a deeply negative view of the role of social media. Our results do lean toward supporting the negative conclusions but add important contextualization and are suggestive of which of the hypothesized mechanisms are most relevant.
+
+Firstly, we found no evidence that the internet could serve as bridge to build connections for those living outside of cities. The optimistic view that internet use could lower the costs of making connections for those who have less social opportunity, those living in less populated areas, and as a result, help them to feel less isolated. We, in fact, found the opposite. Internet communication had either less positive effect or more negative effect on feelings of social isolation for those living in less urban spaces. This finding lends support to the FOMO channel - viewing lots of content from influencers in a rural area compounds feelings of isolation. The finding by @henning-smith2018 and others that rural respondents are more socially isolated seems, at least in China, to be exacerbated by social media.
+
+Additionally, given the robustly negative relationship between social media use and social isolation even in the context of China's highly policed internet, our results cast some doubt on theories that suggest it is the negative content, such as cyberbullying or violent/graphic posts, that drives the relationship. While @ademiluyi2022 finds that cyberbulling and has a negative short term relationship with social exclusion our finding that there is a negative relationship between social media use and social isolation even in places like China that actively attempt to limit this type of online behavior suggest that the relationship we observe has deeper causes. More generally, China's internet governance strategy of limiting negative online experience does not seem to have dampened the relationship between social media use and social isolation, indicating to us that other proposed mechanisms are likely driving the observed relationship.
+
+Finally, our results also further suggest more work needs to be done in identifying important heterogeneous effects - in our results, those living in a big city experienced almost no change in social isolation as social media use increased while the relationship becomes increasingly negative by ruralness. This specific heterogeneous effect may be unique to China but the strength of it suggests that important inter-personal factors may be relevant in other contexts. Importantly, given our survey results are from 2015, our finding of important heterogeneous effects suggest that these effects did not begin around the time of recent scholarly interest in the topic [@beyens2020; @ostic2021] but rather have been an important feature of the relationship between social media and social isolation since the beginning of social media use.
+
+While our study is far from the last word on the subject, we hope this paper further helps move researchers away from considering the binary question of whether social media use has a negative relationship with social isolation to more productively considering the contextual and personal attributes that moderate and mediate this relationship.
+
+{{< pagebreak >}}
+
+## About the Authors
+
+Jason Gainous is a Professor at the University of Sharjah. He has published three books, two with Oxford University Press (Directed Digital Dissidence in Autocracies: How China Wins Online and Tweeting to Power: The Social Media Revolution in American Politics, ) and one with Rowman and Littlefield (Rebooting American Politics: The Internet Revolution). He has also published various articles in journals including American Politics Research, Democratization, Information, Communication and Society, International Journal of Press/Politics, International Journal of Communication, Journal of Information Technology & Politics, Political Behavior, Political Research Quarterly, Political Communication, Social Science Quarterly, and Statistical Science among others. 
+
+His research has won awards from the American Political Science Association, the Kentucky Political Science Association, the Southwestern Social Science Association, and the Florida Political Science Association. The University of Louisville has also honored him with their most prestigious award for research as well as their most prestigious award for teaching. 
+
+Dr. Gainous is also the Co-Editor in Chief of the Journal of Information Technology & Politics. 
+
+Andrew W. MacDonald is an Assistant Professor of Social Science at Duke Kunshan University. He primarily works in the area of Chinese public opinion research, having authored nearly a dozen surveys of Chinese attitudes on politics, technology, and social questions. His work on this topic has been published in a wide variety of communication, technology, and experimental design journals.
+
+His latest projects examine how Chinese feel about state versus corporate control of online personal information and how Chinese people read and interpret state propaganda messages. Taken as a whole, his work seeks to complexify simple narratives about Chinese public opinion; that either the public passively accepts state narratives or becomes an all-out regime opponent. In fact, public opinion is surprisingly nuanced given that China is an authoritarian context.
+
+His other interests lie in data visualization and making data science more approachable using new technological tools. He has developed several innovative, web-based approaches for learning statistical concepts and regularly teaches his universities Stats 101 class. 
+
+
+## Acknowledgements
+
+The authors would like to thank the University of Louisville's Center for Asian Democracy for supporting this project. Additionally, the authors would like to thank those who offered feedback at the Responsible Citizens conference in Paris.
+
+## References
+
+::: {#refs}
+:::
+
+{{< pagebreak >}}
+
+## Online Appendix
+
+### Variable Operationalization
+
+SES is an additive index of these two questions regarding income and education. Each of the following questions were rescaled to range from 0 through 1, then the two questions were summed, and then rescaled to range from 0 through 1 again.
+
+-   Here is a table showing the range of monthly incomes that people have. Which of the letters on this table best represents the total monthly income of your household (after tax)?
+
+    -   0 - 3,000,
+
+    -   3,000 - 6,000,
+
+    -   6,000 - 10,000,
+
+    -   10,000 - 15,000,
+
+    -   15,000 - 25,000,
+
+    -   25,000 - 40,000,
+
+    -   More than 40,000
+
+-   What is the highest level of education that you have obtained?
+
+    -   No formal education,
+
+    -   Primary,
+
+    -   Middle school,
+
+    -   High school,
+
+    -   University,
+
+    -   Advanced Studies/Graduate School
+
+Other important predictor variables are operationalized as follows:
+
+-   Gender
+
+    -   0 = male,
+
+    -   1 = female
+
+-   Are you a member or probationary member of the CCP?
+
+    -   0 = no,
+
+    -   1 = yes
+
+-   How old are you? (rescaled to range from 0 through 1)
+
+{{< pagebreak >}}
+
+### Residual Analysis
+
+```{r}
+#| label: fig-resids-human
+#| fig-cap: "Human Interaction Model Residuals"
+
+resid_panel(mod5, plots = "R")
+```
+
+```{r}
+#| label: fig-resids-online-offline
+#| fig-cap: "Online/Offline Model Residuals"
+
+resid_panel(mod6, plots = "R")
+```
+
+```{r}
+#| label: extra-text
+#| include: false
+
+#Secondly, due to the government's perceived need to control online content, the number of available spaces online where users can freely interact is significantly more limited than on the Western internet. Due to this limitation, there are also fewer opportunities for niche subcultures to form. Most of the existing social media channels are either ones in which the user may connect directly people they know in real life (WeChat) or ones in which they view content of other, anonymous, users in which they rarely form a stable, ongoing relationship with (Xiaohongshu and TikTok). China does feature a program similar to Twitter (Weibo) that does lead to some unique subculture formation but has no analogous space to Reddit or other such spaces that are organized primarily according to user interest.
+
+#Finally, China also has a highly robust online influencer culture. While social media influencers are a global phenomena, China has perhaps the most commercialized version of influencing. Social media influencers are developed by large agencies and work in an almost assembly-line fashion to promote products on livestreams or pitch sponsor products. In this influencer culture, less attention is paid to authenticity and personality and relatively more emphasis is placed on consumerism, brand promotion, and image [@tam2019; @wei2023].
+```
