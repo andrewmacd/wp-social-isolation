@@ -1,0 +1,14 @@
+---
+title: "Response to reviewer"
+format: docx
+---
+
+>1) I am not sure if I buy the argument that cyber bullying and online violence is rarer in China than elsewhere. In the absence of comparative evidence, I would be cautious making this argument. As the discussion in China suggests, the problem is rampant and has possibly increased in recent years. https://www.thepaper.cn/newsDetail_forward_22289974 There is quite a bit of research on online vigilantism in China, for instance: www.doi.org/10.1080/24701475.2021.1919965
+
+The point is well taken. We have incorporated the sources you provided and revised the text accordingly. We clarified that the effect is a regular phenomenon on the Chinese internet and therefore expectations regarding its impact are somewhat ambiguous.
+
+> 2) It would be helpful if the authors could provide some overview tables of the distribution of their sample along age, education and, if possible, income and the Chinese Internet population in the appendix. The China Internet Report or the China Family Panel Studies provide data on the Chinese online population.
+
+>3) In H2 it was assumed that “those who are able to use social media to make new friends will have lower social isolation scores than those who do not”. However, the finding on moving online relationships offline runs counter to this hypothesis, and seems to be driven by more rural respondents. The finding appears counter-intuitive and it would be helpful if it could be interpreted more. It does not appear as if the FOMO effect can explain this finding."
+
+A very good point. We have added more interpretation of this finding in the Conclusion section.
